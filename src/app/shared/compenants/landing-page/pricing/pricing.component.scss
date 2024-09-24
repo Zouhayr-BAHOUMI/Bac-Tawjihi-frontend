@@ -1,0 +1,125 @@
+.subscription-packages {
+    background-color: rgba(14, 73, 115, 0.08);
+    padding: 80px 0;
+    font-family: Poppins, sans-serif;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 15px;
+  }
+  
+  .package-header {
+    flex: 1;
+    max-width: 40%;
+    margin-right: 40px;
+    margin-top: 5rem;
+  }
+  
+  .package-header .title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #112650;
+    margin-bottom: 20px;
+  }
+  
+  .package-header .description {
+    font-size: 16px;
+    color: #112650;
+    line-height: 1.5;
+  }
+  
+  .price-cards {
+    flex: 2;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .price-card {
+    background-color: #fff;
+    border-radius: 11px;
+    padding: 40px 20px;
+    text-align: center;
+    color: #112650;
+    flex: 1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .price-card .subtitle {
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  
+  .price-card .title {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .price {
+    color: #0e4973;
+    font-size: 27px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .features {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .feature {
+    font-size: 13px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(14, 73, 115, 0.81);
+  }
+  
+  .feature:last-child {
+    border-bottom: none;
+  }
+  
+  .cta-button {
+    background-color: #50adf2;
+    border: none;
+    border-radius: 22px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 7px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #3a8ac7;
+  }
+  
+  @media (max-width: 991px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .package-header {
+      max-width: 100%;
+      margin-right: 0;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+  
+    .price-cards {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .price-card {
+      margin-top: 20px;
+    }
+  }
