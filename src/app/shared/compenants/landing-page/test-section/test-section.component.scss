@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 80px;
+    padding: 0rem 8rem;
     color: #112650;
 }
 .content-wrapper {
@@ -53,6 +53,7 @@ body {
 .image-wrapper img {
     max-width: 100%;
     height: auto;
+    margin-top: 6rem;
 }
 @media (max-width: 991px) {
     .recommendation-container {
