@@ -3,10 +3,14 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { authInterceptor } from './core/auth.interceptor';
+import { AuthService } from './core/auth.service';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes),
-    provideHttpClient(),
+  providers: [provideRouter(routes),AuthService,
+    provideHttpClient(
+      withInterceptors([authInterceptor])
+    ),
     provideAnimations()]
 };

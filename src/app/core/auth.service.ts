@@ -9,7 +9,7 @@ import { LoginResponse } from '../interfaces/login-response';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8020';
+  private apiUrl = 'http://localhost:8082';
   private jwt = new JwtHelperService();
 
   constructor(private http : HttpClient) { }
@@ -40,6 +40,15 @@ export class AuthService {
     if (token) {
       const decodedToken = this.jwt.decodeToken(token);
       return decodedToken.role;
+    }
+    return null;
+  }
+
+  getCurrentUserName(): string | null {
+    const token = this.getToken();
+    if (token) {
+      const decodedToken = this.jwt.decodeToken(token);
+      return decodedToken.fullname;
     }
     return null;
   }
