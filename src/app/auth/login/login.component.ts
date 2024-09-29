@@ -65,7 +65,7 @@ export class LoginComponent {
     
     switch(role){
       case 'ADMIN' : 
-        this.router.navigate(['/admin/projets']);
+        this.router.navigate(['/admin/admin-dashboard']);
         break;
 
       case 'USER' :
