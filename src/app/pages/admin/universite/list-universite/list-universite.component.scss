@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.card {
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-header {
+    background-color: #f8f9fc;
+}
+.card-body {
+    font-size: 14px; 
+}
+.table th, .table td {
+    vertical-align: middle;
+    padding: 10px; 
+}
+.table img {
+    max-width: 80px; 
+    height: auto;
+    border-radius: 5px;
+}
+.table thead th {
+    background-color: #f8f9fc;
+    font-weight: bold;
+}
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+.btn-primary {
+    background-color: #4e73df;
+    border: none;
+    font-size: 14px;
+}
+.btn-danger {
+    background-color: #e74a3b;
+    border: none;
+    font-size: 14px;
+}
+.btn {
+    font-size: 12px; 
+}
+@media (max-width: 768px) {
+    .table-responsive {
+        margin: 0 -15px;
+    }
+    .card-header, .card-body {
+        padding: 1rem;
+    }
+    .table thead {
+        display: none;
+    }
+    .table tbody td {
+        display: block;
+        width: 100%;
+        text-align: right;
+        border-bottom: 1px solid #dee2e6;
+    }
+    .table tbody td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+    }
+}
