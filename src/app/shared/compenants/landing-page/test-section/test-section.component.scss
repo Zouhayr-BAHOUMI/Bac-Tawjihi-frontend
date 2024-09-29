@@ -16,17 +16,18 @@ body {
     max-width: 50%;
 }
 .main-title {
-    font-size: 24px;
+    font-size: 2rem;
     font-weight: 600;
     margin-bottom: 20px;
 }
 .subtitle {
     font-size: 18px;
+    font-size: 1.7rem;
     font-weight: 400;
     margin-bottom: 20px;
 }
 .description {
-    font-size: 16px;
+    font-size: 1.2rem;
     margin-bottom: 30px;
 }
 .description ul {
@@ -42,7 +43,7 @@ body {
     border: none;
     border-radius: 10px;
     padding: 15px 30px;
-    font-size: 16px;
+    font-size: 1.2rem;
     font-weight: 500;
     cursor: pointer;
 }
