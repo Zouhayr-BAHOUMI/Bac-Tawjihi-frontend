@@ -48,7 +48,16 @@ export class ListUniversiteComponent implements OnInit {
     this.universiteToDelete = null;
   }
 
-  confirmDelete() {
-    throw new Error('Method not implemented.');
+  confirmDelete(): void {
+    if (this.universiteToDelete) {
+      this.deleteEquipement(this.universiteToDelete.id);
     }
+  }
+  
+  deleteEquipement(id: number): void {
+    this.universiteService.deleteUniversite(id).subscribe(() => {
+      this.getUniversites();
+      this.cancelDelete();
+    });
+  }
 }
