@@ -27,7 +27,7 @@
                             <img [src]="'assets/images/' + universite.imageUrl" alt="Image" style="width: 100px; height: auto;">
                         </td>
                         <td>{{ universite.nomUniversite }}</td>
-                        <td>{{ universite.adresse.region }}</td>
+                        <td>{{ universite.adresse?.region || 'N/A' }}</td>
                         <td>
                             <a class="btn btn-success mr-2" [routerLink]="['/admin/admin-dashboard/universites/edit', universite.id]">Edit</a>
                             <a class="btn btn-danger mr-2"  (click)="openDeleteModal(universite)" >Delete</a>
