@@ -4,6 +4,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { MainContentComponent } from './shared/compenants/dashboard/main-content/main-content.component';
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
 import { ListUniversiteComponent } from './pages/admin/universite/list-universite/list-universite.component';
+import { CreateUniversiteComponent } from './pages/admin/universite/create-universite/create-universite.component';
 
 export const routes: Routes = [
 
@@ -12,6 +13,7 @@ export const routes: Routes = [
     { path: 'admin/admin-dashboard', component: AdminDashboardComponent, children : [
         { path: '', component: MainContentComponent },
         { path: 'universite', component: ListUniversiteComponent },
+        { path: 'universite/create', component: CreateUniversiteComponent },
     ] }
 
 ];
