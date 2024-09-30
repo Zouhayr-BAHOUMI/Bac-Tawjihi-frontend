@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -12,10 +12,8 @@ import { Region } from 'src/app/enums/region';
   templateUrl: './create-universite.component.html',
   styleUrls: ['./create-universite.component.scss']
 })
-export class CreateUniversiteComponent {
-onSubmit() {
-throw new Error('Method not implemented.');
-}
+export class CreateUniversiteComponent implements OnInit {
+
 
   createUniversiteForm: FormGroup ;
   selecteFile: File | null = null;
@@ -28,8 +26,11 @@ throw new Error('Method not implemented.');
     private router : Router
   ){
     this.createUniversiteForm = this.formbuilder.group({
-      nom: ['', Validators.required],
-      imageUrl: ['', Validators.required] 
+      nomUniversite: ['', Validators.required], 
+      imageUrl: ['', Validators.required],
+      adresse: this.formbuilder.group({
+        region: ['', Validators.required],
+      })
     });
   }
 
@@ -40,6 +41,27 @@ throw new Error('Method not implemented.');
     if (file) {
       this.selecteFile = file;
       this.createUniversiteForm.patchValue({ imageUrl: file.name });
+    }
+  }
+
+  onSubmit() {
+    if (this.createUniversiteForm.valid) {
+      console.log(this.createUniversiteForm);
+      const universiteToAdd = this.createUniversiteForm.value;
+
+      if (this.selecteFile) {
+        universiteToAdd.imageUrl = this.selecteFile.name;
+      }
+
+      this.universiteService.addUniversite(universiteToAdd).subscribe(
+        response => {
+          console.log('University created successfully', response);
+          this.router.navigate(['/admin/admin-dashboard/universite']);
+        },
+        error => {
+          console.error('Error creating panne', error);
+        }
+      );
     }
   }
 

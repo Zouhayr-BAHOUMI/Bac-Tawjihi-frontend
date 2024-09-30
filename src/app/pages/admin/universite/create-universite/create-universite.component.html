@@ -18,14 +18,14 @@
               <div class="form-group row">
                 <label for="nom" class="col-md-4 col-form-label text-md-right">Nom universite</label>
                 <div class="col-md-6">
-                  <input id="nom" type="text" class="form-control" formControlName="nom" required>
+                  <input id="nom" type="text" class="form-control" formControlName="nomUniversite" required>
                 </div>
               </div>
 
-              <div class="form-group row">
+              <div formGroupName="adresse" class="form-group row">
                 <label for="type" class="col-md-4 col-form-label text-md-right">Region</label>
                 <div class="col-md-6">
-                  <select id="type" class="form-control" formControlName="type" required>
+                  <select id="type" class="form-control" formControlName="region"  required>
                     <option *ngFor="let region of regions" [value]="region">{{ region }}</option>
                   </select>
                 </div>
