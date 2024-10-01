@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { EtablissementDto } from 'src/app/dto/etablissement-dto';
 import { Etablissement } from 'src/app/interfaces/etablissement';
 
 @Injectable({
