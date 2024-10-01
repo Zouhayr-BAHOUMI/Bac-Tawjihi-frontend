@@ -14,12 +14,8 @@ import { Region } from 'src/app/enums/region';
   styleUrls: ['./edit-universite.component.scss']
 })
 export class EditUniversiteComponent {
-onSelectFile($event: Event) {
-throw new Error('Method not implemented.');
-}
-onSubmit() {
-throw new Error('Method not implemented.');
-}
+
+
 
   editUniversiteForm: FormGroup;
   universite: UniversiteDto = {} as UniversiteDto;
@@ -60,5 +56,31 @@ throw new Error('Method not implemented.');
         error => console.log(error)
       );
     });
+  }
+
+  onSelectFile(e: Event): void {
+    const file = (e.target as HTMLInputElement).files?.[0];
+    if (file) {
+      this.selecteFile = file;
+      this.editUniversiteForm.patchValue({ imageUrl: file.name });
+    }
+  }
+
+  onSubmit(): void {
+    if (this.editUniversiteForm.valid) {
+      
+      const universiteToUpdate : UniversiteDto = {
+        ...this.editUniversiteForm.value,
+        imageUrl: this.selecteFile ? this.selecteFile.name : this.editUniversiteForm.value.imageUrl
+      }
+
+      this.universiteService.updateUniversite(this.idUniversite, universiteToUpdate).subscribe(
+        response => {
+          console.log('University updated successfully', response);
+          this.router.navigate(['/admin/admin-dashboard/universite']);
+        },
+        error => console.log(error)
+      );
+    }
   }
 }
