@@ -5,6 +5,7 @@ import { MainContentComponent } from './shared/compenants/dashboard/main-content
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
 import { ListUniversiteComponent } from './pages/admin/universite/list-universite/list-universite.component';
 import { CreateUniversiteComponent } from './pages/admin/universite/create-universite/create-universite.component';
+import { EditUniversiteComponent } from './pages/admin/universite/edit-universite/edit-universite.component';
 
 export const routes: Routes = [
 
@@ -14,6 +15,7 @@ export const routes: Routes = [
         { path: '', component: MainContentComponent },
         { path: 'universite', component: ListUniversiteComponent },
         { path: 'universite/create', component: CreateUniversiteComponent },
+        { path: 'universite/edit/:idUniversite', component: EditUniversiteComponent }
     ] }
 
 ];

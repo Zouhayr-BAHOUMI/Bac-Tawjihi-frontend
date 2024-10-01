@@ -25,6 +25,12 @@ export class UniversiteService {
     return this.http.get<Universite>(`${this.apiUrl}/idUniversite?idUniversite=${idUniversite}`);
   }
 
+  public updateUniversite(idUniversite: number, universiteDto: UniversiteDto): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/update/${idUniversite}`, universiteDto, {
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+
   public deleteUniversite(idUniversite: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/delete/${idUniversite}`);
   }
