@@ -39,4 +39,8 @@ export class EtablissementService {
   public deleteEtablissement(idEtablissement: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/delete/${idEtablissement}`);
   }
+
+  getEtablissementsByUniversite(idUniversite: number): Observable<Etablissement[]> {
+    return this.http.get<Etablissement[]>(`${this.apiUrl}/universite/${idUniversite}`);
+  }
 }

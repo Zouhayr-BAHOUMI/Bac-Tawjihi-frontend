@@ -19,7 +19,7 @@
                         <th scope="col">Nom</th>
                         <th scope="col">Localisation</th>
                         <th scope="col">Type</th>
-                        <th scope="col">Universite</th>
+                        <th scope="col">condition</th>
                         <th scope="col">Adresse</th>
                         <th scope="col">Manage</th>
                     </tr>
@@ -32,8 +32,8 @@
                         <td>{{ etablissement.nomEtablissement }}</td>
                         <td>{{ etablissement.localisation }}</td>
                         <td>{{ etablissement.typeEtablissement }}</td>
-                        <td>{{ etablissement.universite?.nomUniversite || 'N/A' }}</td>
-                        <td>{{ etablissement.adresse?.region || 'N/A' }}</td>
+                        <td>{{ etablissement.condition }}</td>
+                        <td>{{ etablissement.adresse?.ville || 'N/A' }}</td>
                         <td>
                             <a class="btn btn-success mr-2" [routerLink]="['/admin/admin-dashboard/etablissement/edit', etablissement.id]">Edit</a>
                             <a class="btn btn-danger mr-2" (click)="openDeleteModal(etablissement)">Delete</a>
