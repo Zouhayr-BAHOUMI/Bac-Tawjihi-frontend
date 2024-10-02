@@ -6,6 +6,13 @@
     <div class="card ml-3 mx-auto">
         <div class="card-header">
             <div class="row">
+                <div class="col-md-4">
+                    <select class="form-control" [(ngModel)]="selectedUniversiteId" (change)="onUniversiteChange()">
+                        <option *ngFor="let universite of universites" [value]="universite.id">
+                            {{ universite.nomUniversite }}
+                        </option>
+                    </select>
+                </div>
                 <div>
                     <a class="btn btn-primary" routerLink="create">Create</a>
                 </div>
