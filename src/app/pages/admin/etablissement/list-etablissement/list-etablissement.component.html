@@ -1,0 +1,77 @@
+<div class="d-sm-flex align-items-center justify-content-between ml-3 ">
+    <h1 class="h3 mb-0 text-gray-800">Etablissements</h1>
+</div>
+
+<div class="row">
+    <div class="card ml-3 mx-auto">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <select class="form-control" [(ngModel)]="selectedUniversiteId" (change)="onUniversiteChange()">
+                        <option *ngFor="let universite of universites" [value]="universite.id">
+                            {{ universite.nomUniversite }}
+                        </option>
+                    </select>
+                </div>
+                <div>
+                    <a class="btn btn-primary" routerLink="create">Create</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Localisation</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">condition</th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">Manage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let etablissement of etablissements">
+                        <td>
+                            <img [src]="'assets/images/' + etablissement.imageUrl" alt="Image" style="width: 100px; height: auto;">
+                        </td>
+                        <td>{{ etablissement.nomEtablissement }}</td>
+                        <td>{{ etablissement.localisation }}</td>
+                        <td>{{ etablissement.typeEtablissement }}</td>
+                        <td>{{ etablissement.condition }}</td>
+                        <td>{{ etablissement.adresse?.ville || 'N/A' }}</td>
+                        <td>
+                            <a class="btn btn-success mr-2" [routerLink]="['/admin/admin-dashboard/etablissement/edit', etablissement.id]">Edit</a>
+                            <a class="btn btn-danger mr-2" (click)="openDeleteModal(etablissement)">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="showModal" class="modal" tabindex="-1" role="dialog" style="display: block;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete</h5>
+                <button type="button" class="close" (click)="cancelDelete()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this etablissement: {{ etablissementToDelete?.nomEtablissement }}?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="cancelDelete()">Cancel</button>
+                <button type="button" class="btn btn-danger" (click)="confirmDelete()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal backdrop -->
+<div *ngIf="showModal" class="modal-backdrop fade show"></div>

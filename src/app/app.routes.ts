@@ -6,6 +6,9 @@ import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-das
 import { ListUniversiteComponent } from './pages/admin/universite/list-universite/list-universite.component';
 import { CreateUniversiteComponent } from './pages/admin/universite/create-universite/create-universite.component';
 import { EditUniversiteComponent } from './pages/admin/universite/edit-universite/edit-universite.component';
+import { ListEtablissementComponent } from './pages/admin/etablissement/list-etablissement/list-etablissement.component';
+import { CreateEtablissementComponent } from './pages/admin/etablissement/create-etablissement/create-etablissement.component';
+import { EditEtablissementComponent } from './pages/admin/etablissement/edit-etablissement/edit-etablissement.component';
 
 export const routes: Routes = [
 
@@ -15,7 +18,10 @@ export const routes: Routes = [
         { path: '', component: MainContentComponent },
         { path: 'universite', component: ListUniversiteComponent },
         { path: 'universite/create', component: CreateUniversiteComponent },
-        { path: 'universite/edit/:idUniversite', component: EditUniversiteComponent }
+        { path: 'universite/edit/:idUniversite', component: EditUniversiteComponent },
+        { path: 'etablissement', component: ListEtablissementComponent },
+        { path: 'etablissement/create', component: CreateEtablissementComponent },
+        { path: 'etablissement/edit/:idetablissement', component: EditEtablissementComponent }
     ] }
 
 ];
