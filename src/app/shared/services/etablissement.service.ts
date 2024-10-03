@@ -20,7 +20,7 @@ export class EtablissementService {
 
 
   public addEtablissement(etablissementDto: EtablissementDto, idUniversite: number): Observable<EtablissementDto> {
-    return this.http.post<EtablissementDto>(`${this.apiUrl}/add/${idUniversite}`, etablissementDto);
+    return this.http.post<EtablissementDto>(`${this.apiUrl}/add/${idUniversite}`, etablissementDto, { responseType: 'text' as 'json' });
   }
 
 

@@ -33,7 +33,7 @@ export class ListEtablissementComponent {
     this.getUniversities();
   }
 
-  public getEtablissements(): void {
+  public getUniversities(): void {
     this.universiteService.getUniversites().subscribe(
       (response: Universite[]) => {
         console.log(response);
@@ -45,7 +45,7 @@ export class ListEtablissementComponent {
     );
   }
 
-  public getUniversities(): void {
+  public getEtablissements(): void {
     this.etablissementService.getAllEtablissements().subscribe(
       (response: Etablissement[]) => {
         console.log(response);

@@ -6,7 +6,7 @@ import { Universite } from "../interfaces/universite";
 
 export interface EtablissementDto {
 
-    id: number;
+    id?: number;
     nomEtablissement: string;
     imageUrl?: string;  
     localisation?: string;  
@@ -14,9 +14,7 @@ export interface EtablissementDto {
     proceduresCandidature?: string;  
     calendrier?: string;  
     typeEtablissement: TypeEtablissement;
-    universite?: Universite; 
     adresse: {
-        region: Region;
         province: Province;
         ville: Ville;
     };
