@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Create New Pack</h5>
+            <a routerLink="../" class="btn btn-link">Back</a>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="createPackForm" (ngSubmit)="onSubmit()">
+              <div class="form-group row">
+                <label for="nomPack" class="col-md-4 col-form-label text-md-right">Nom Pack</label>
+                <div class="col-md-6">
+                  <input id="nomPack" type="text" class="form-control" formControlName="nomPack" required>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label for="typePack" class="col-md-4 col-form-label text-md-right">Type Pack</label>
+                <div class="col-md-6">
+                  <select id="typePack" class="form-control" formControlName="typePack" required>
+                    <option *ngFor="let type of typesPacks" [value]="type">{{ type }}</option>
+                  </select>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-4 col-form-label text-md-right">Filiere Pack</label>
+                <div class="col-md-6">
+                  <div *ngFor="let filiere of filieres">
+                    <input type="checkbox" [value]="filiere" formControlName="filierePack" (change)="onFiliereChange($event)">{{ filiere }}
+                  </div>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label for="contenu" class="col-md-4 col-form-label text-md-right">Contenu</label>
+                <div class="col-md-6">
+                  <textarea id="contenu" class="form-control" formControlName="contenu" required></textarea>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label for="prix" class="col-md-4 col-form-label text-md-right">Prix</label>
+                <div class="col-md-6">
+                  <input id="prix" type="number" class="form-control" formControlName="prix" required>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label for="dateLimit" class="col-md-4 col-form-label text-md-right">Date Limit</label>
+                <div class="col-md-6">
+                  <input id="dateLimit" type="date" class="form-control" formControlName="dateLimit" required>
+                </div>
+              </div>
+  
+              <div class="form-group row mb-0">
+                <div class="col-md-6 offset-md-4">
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

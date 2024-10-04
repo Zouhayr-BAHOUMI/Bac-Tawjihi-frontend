@@ -1,0 +1,72 @@
+<div class="d-sm-flex align-items-center justify-content-between ml-3">
+    <h1 class="h3 mb-0 text-gray-800">Packs</h1>
+</div>
+
+<div class="row">
+    <div class="card ml-3 mx-auto">
+        <div class="card-header">
+            <div class="row">
+                <div>
+                    <a class="btn btn-primary" routerLink="create">Create</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nom Pack</th>
+                        <th scope="col">Type Pack</th>
+                        <th scope="col">Pack Filière</th>
+                        <th scope="col">Status Pack</th>
+                        <th scope="col">Contenu</th>
+                        <th scope="col">Prix</th>
+                        <th scope="col">Date Limit</th>
+                        <th scope="col">Manage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pack of packs">
+                        <td>{{ pack.nomPack }}</td>
+                        <td>{{ pack.typePack }}</td>
+                        <td>
+                            <ul>
+                                <li *ngFor="let filiere of pack.packFilieres">{{ filiere }}</li>
+                            </ul>
+                        </td>
+                        <td>{{ pack.statusPack }}</td>
+                        <td>{{ pack.contenu }}</td>
+                        <td>{{ pack.prix }}DH</td>
+                        <td>{{ pack.dateLimit | date }}</td>
+                        <td>
+                            <a class="btn btn-success mr-2" [routerLink]="['/admin/admin-dashboard/packs/edit', pack.id]">Edit</a>
+                            <a class="btn btn-danger mr-2" (click)="openDeleteModal(pack)">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div *ngIf="showModal" class="modal" tabindex="-1" role="dialog" style="display: block;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete</h5>
+                <button type="button" class="close" (click)="cancelDelete()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this pack: {{ packToDelete?.nomPack }}?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="cancelDelete()">Cancel</button>
+                <button type="button" class="btn btn-danger" (click)="confirmDelete()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="showModal" class="modal-backdrop fade show"></div>
