@@ -29,10 +29,14 @@
                     <tr *ngFor="let pack of packs">
                         <td>{{ pack.nomPack }}</td>
                         <td>{{ pack.typePack }}</td>
-                        <td>{{ pack.packFiliere }}</td>
+                        <td>
+                            <ul>
+                                <li *ngFor="let filiere of pack.packFilieres">{{ filiere }}</li>
+                            </ul>
+                        </td>
                         <td>{{ pack.statusPack }}</td>
                         <td>{{ pack.contenu }}</td>
-                        <td>{{ pack.prix | currency }}DH</td>
+                        <td>{{ pack.prix }}DH</td>
                         <td>{{ pack.dateLimit | date }}</td>
                         <td>
                             <a class="btn btn-success mr-2" [routerLink]="['/admin/admin-dashboard/packs/edit', pack.id]">Edit</a>

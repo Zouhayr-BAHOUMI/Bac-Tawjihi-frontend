@@ -26,8 +26,9 @@ export class ListPackComponent {
   }
 
   public getPacks(): void {
-    this.packService.getPacks().subscribe(
+    this.packService.getAllPacksWithFilieres().subscribe(
       (response: Pack[]) => {
+        console.log(response);
         this.packs = response;
       },
       (error: HttpErrorResponse) => {

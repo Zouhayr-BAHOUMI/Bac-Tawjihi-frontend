@@ -7,7 +7,7 @@ export interface Pack {
     id: number;
     nomPack: string;
     typePack: TypePack;
-    packFiliere: PackFiliere[];
+    packFilieres: PackFiliere[];
     statusPack: StatusPack;
     contenu: string;
     prix: number;
