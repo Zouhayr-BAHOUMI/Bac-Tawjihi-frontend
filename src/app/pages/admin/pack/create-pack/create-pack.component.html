@@ -19,26 +19,17 @@
                 <label for="typePack" class="col-md-4 col-form-label text-md-right">Type Pack</label>
                 <div class="col-md-6">
                   <select id="typePack" class="form-control" formControlName="typePack" required>
-                    <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+                    <option *ngFor="let type of typesPacks" [value]="type">{{ type }}</option>
                   </select>
                 </div>
               </div>
   
               <div class="form-group row">
-                <label for="packFiliere" class="col-md-4 col-form-label text-md-right">Pack Filiere</label>
+                <label class="col-md-4 col-form-label text-md-right">Filiere Pack</label>
                 <div class="col-md-6">
-                  <select id="packFiliere" class="form-control" formControlName="packFiliere" multiple required>
-                    <option *ngFor="let filiere of filieres" [value]="filiere">{{ filiere }}</option>
-                  </select>
-                </div>
-              </div>
-  
-              <div class="form-group row">
-                <label for="statusPack" class="col-md-4 col-form-label text-md-right">Status Pack</label>
-                <div class="col-md-6">
-                  <select id="statusPack" class="form-control" formControlName="statusPack" required>
-                    <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
-                  </select>
+                  <div *ngFor="let filiere of filieres">
+                    <input type="checkbox" [value]="filiere" formControlName="filierePack" (change)="onFiliereChange($event)">{{ filiere }}
+                  </div>
                 </div>
               </div>
   
