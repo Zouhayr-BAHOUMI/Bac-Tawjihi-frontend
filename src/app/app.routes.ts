@@ -9,6 +9,9 @@ import { EditUniversiteComponent } from './pages/admin/universite/edit-universit
 import { ListEtablissementComponent } from './pages/admin/etablissement/list-etablissement/list-etablissement.component';
 import { CreateEtablissementComponent } from './pages/admin/etablissement/create-etablissement/create-etablissement.component';
 import { EditEtablissementComponent } from './pages/admin/etablissement/edit-etablissement/edit-etablissement.component';
+import { ListPackComponent } from './pages/admin/pack/list-pack/list-pack.component';
+import { CreatePackComponent } from './pages/admin/pack/create-pack/create-pack.component';
+import { EditPackComponent } from './pages/admin/pack/edit-pack/edit-pack.component';
 
 export const routes: Routes = [
 
@@ -21,7 +24,10 @@ export const routes: Routes = [
         { path: 'universite/edit/:idUniversite', component: EditUniversiteComponent },
         { path: 'etablissement', component: ListEtablissementComponent },
         { path: 'etablissement/create', component: CreateEtablissementComponent },
-        { path: 'etablissement/edit/:idetablissement', component: EditEtablissementComponent }
+        { path: 'etablissement/edit/:idetablissement', component: EditEtablissementComponent },
+        { path: 'pack', component: ListPackComponent },
+        { path: 'pack/create', component: CreatePackComponent },
+        { path: 'pack/edit/:idpack', component: EditPackComponent }
     ] }
 
 ];
