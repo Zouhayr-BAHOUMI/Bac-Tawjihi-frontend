@@ -26,6 +26,14 @@ export class PackService {
     return this.http.get<Pack>(`${this.apiUrl}/idPanne?idPack=${idPack}`);
   }
 
+  public getPackWithFilieres(idPack: number): Observable<Pack> {
+    return this.http.get<Pack>(`${this.apiUrl}/filieres/${idPack}`);
+  }
+
+  public getAllPacksWithFilieres(): Observable<Pack[]> {
+    return this.http.get<Pack[]>(`${this.apiUrl}/filieres`);
+  }
+
   public updatePack(idPack: number, pack: Pack): Observable<void> {
     return this.http.put<void>(`${this.apiUrl}/update/${idPack}`, pack, {
       headers: { 'Content-Type': 'application/json' }
