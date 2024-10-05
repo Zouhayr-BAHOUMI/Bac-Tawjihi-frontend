@@ -1,0 +1,36 @@
+.custom-card {
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 1px 0px 0px rgba(0,0,0,.2), 0 0px 0px 0 rgba(0,0,0,.14), 0 0px 2px 0 rgba(0,0,0,.12);
+    padding: 1rem;
+    margin: 1rem 2rem;
+    font-family: "Inter var", sans-serif;
+    width: 70vh;
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+    background-color: #ffffff;
+  }
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  .card-actions {
+    display: flex;
+  }
+  .card-actions button {
+    margin-left: 0.25rem;
+  }
+  .card-description {
+    font-size: 0.9rem;
+    color: #5c5454;
+    margin-bottom: 0.8rem;
+  }
+  .card-footer {
+    font-size: 0.875rem;
+    color: rgba(0,0,0,.6);
+  }
