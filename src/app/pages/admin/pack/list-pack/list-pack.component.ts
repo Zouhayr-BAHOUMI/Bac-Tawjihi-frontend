@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PackService } from 'src/app/shared/services/pack.service';
 import { Pack } from 'src/app/interfaces/pack';
@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './list-pack.component.html',
   styleUrls: ['./list-pack.component.scss']
 })
-export class ListPackComponent {
+export class ListPackComponent implements OnInit{
 
   packs: Pack[] = [];
   packToDelete: Pack | null = null;
