@@ -1,1 +1,53 @@
-<p>edit-test works!</p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Edit Test</h5>
+                    <a routerLink="../" class="btn btn-link">Back</a>
+                </div>
+                <div class="card-body">
+
+                    <form [formGroup]="editTestForm" (ngSubmit)="onSubmit()">
+
+                        <div class="form-group row">
+                            <label for="titre" class="col-md-4 col-form-label text-md-right">Test Title</label>
+                            <div class="col-md-6">
+                                <input type="text" id="titre" class="form-control" formControlName="titre" placeholder="Enter test title" />
+                                <div *ngIf="editTestForm.controls['titre'].invalid && editTestForm.controls['titre'].touched" class="text-danger">
+                                    Title is required
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="description" class="col-md-4 col-form-label text-md-right">Test Description</label>
+                            <div class="col-md-6">
+                                <textarea id="description" class="form-control" formControlName="description" placeholder="Enter test description"></textarea>
+                                <div *ngIf="editTestForm.controls['description'].invalid && editTestForm.controls['description'].touched" class="text-danger">
+                                    Description is required
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="duree" class="col-md-4 col-form-label text-md-right">Duration</label>
+                            <div class="col-md-6">
+                                <input type="text" id="duree" class="form-control" formControlName="duree" placeholder="Enter test duration" />
+                                <div *ngIf="editTestForm.controls['duree'].invalid && editTestForm.controls['duree'].touched" class="text-danger">
+                                    Duration is required
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary" [disabled]="editTestForm.invalid">Update Test</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,34 +1,53 @@
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Create Test</h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Create New Test</h5>
+                    <a routerLink="../" class="btn btn-link">Back</a>
+                </div>
+                <div class="card-body">
+
+                    <form [formGroup]="createTestForm" (ngSubmit)="onSubmit()">
+
+                        <div class="form-group row">
+                            <label for="titre" class="col-md-4 col-form-label text-md-right">Test Title</label>
+                            <div class="col-md-6">
+                                <input type="text" id="titre" class="form-control" formControlName="titre" placeholder="Enter test title" />
+                                <div *ngIf="createTestForm.controls['titre'].invalid && createTestForm.controls['titre'].touched" class="text-danger">
+                                    Title is required
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="description" class="col-md-4 col-form-label text-md-right">Test Description</label>
+                            <div class="col-md-6">
+                                <textarea id="description" class="form-control" formControlName="description" placeholder="Enter test description"></textarea>
+                                <div *ngIf="createTestForm.controls['description'].invalid && createTestForm.controls['description'].touched" class="text-danger">
+                                    Description is required
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="duree" class="col-md-4 col-form-label text-md-right">Duration</label>
+                            <div class="col-md-6">
+                                <input type="text" id="duree" class="form-control" formControlName="duree" placeholder="Enter test duration" />
+                                <div *ngIf="createTestForm.controls['duree'].invalid && createTestForm.controls['duree'].touched" class="text-danger">
+                                    Duration is required
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary" [disabled]="createTestForm.invalid">Create Test</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-<form [formGroup]="createTestForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label for="titre">Test Title</label>
-    <input type="text" id="titre" class="form-control" formControlName="titre" placeholder="Enter test title" />
-    <div *ngIf="createTestForm.controls['titre'].invalid && createTestForm.controls['titre'].touched" class="text-danger">
-      Title is required
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="description">Test Description</label>
-    <textarea id="description" class="form-control" formControlName="description" placeholder="Enter test description"></textarea>
-    <div *ngIf="createTestForm.controls['description'].invalid && createTestForm.controls['description'].touched" class="text-danger">
-      Description is required
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="duree">Duration</label>
-    <input type="text" id="duree" class="form-control" formControlName="duree" placeholder="Enter test duration" />
-    <div *ngIf="createTestForm.controls['duree'].invalid && createTestForm.controls['duree'].touched" class="text-danger">
-      Duration is required
-    </div>
-  </div>
-
-  <div class="form-group">
-    <button type="submit" class="btn btn-primary">Create Test</button>
-  </div>
-</form>
