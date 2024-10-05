@@ -24,10 +24,10 @@ export const routes: Routes = [
         { path: 'universite/edit/:idUniversite', component: EditUniversiteComponent },
         { path: 'etablissement', component: ListEtablissementComponent },
         { path: 'etablissement/create', component: CreateEtablissementComponent },
-        { path: 'etablissement/edit/:idetablissement', component: EditEtablissementComponent },
+        { path: 'etablissement/edit/:idEtablissement', component: EditEtablissementComponent },
         { path: 'pack', component: ListPackComponent },
         { path: 'pack/create', component: CreatePackComponent },
-        { path: 'pack/edit/:idpack', component: EditPackComponent }
+        { path: 'pack/edit/:idPack', component: EditPackComponent }
     ] }
 
 ];

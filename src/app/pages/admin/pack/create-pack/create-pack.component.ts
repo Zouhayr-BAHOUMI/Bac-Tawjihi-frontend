@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PackService } from 'src/app/shared/services/pack.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -15,7 +15,7 @@ import { Pack } from 'src/app/interfaces/pack';
   templateUrl: './create-pack.component.html',
   styleUrls: ['./create-pack.component.scss']
 })
-export class CreatePackComponent {
+export class CreatePackComponent implements OnInit{
 
   createPackForm: FormGroup;
   filieres: string[] = Object.values(PackFiliere); 
