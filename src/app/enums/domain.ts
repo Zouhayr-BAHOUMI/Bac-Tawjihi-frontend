@@ -1,0 +1,11 @@
+export enum Domain {
+
+    TECH = "TECH",
+    IT = "IT",
+    ISLAMIQUE = "ISLAMIQUE",
+    FRANCAIS = "FRANCAIS",
+    ARABE = "ARABE",
+    GEOGRAPHY = "GEOGRAPHY",
+    MEDECINE = "MEDECINE",
+    ARCHETECTURE = "ARCHETECTURE"
+}
