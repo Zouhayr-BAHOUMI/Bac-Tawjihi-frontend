@@ -12,6 +12,9 @@ import { EditEtablissementComponent } from './pages/admin/etablissement/edit-eta
 import { ListPackComponent } from './pages/admin/pack/list-pack/list-pack.component';
 import { CreatePackComponent } from './pages/admin/pack/create-pack/create-pack.component';
 import { EditPackComponent } from './pages/admin/pack/edit-pack/edit-pack.component';
+import { ListTestComponent } from './pages/admin/test/list-test/list-test.component';
+import { CreateTestComponent } from './pages/admin/test/create-test/create-test.component';
+import { EditTestComponent } from './pages/admin/test/edit-test/edit-test.component';
 
 export const routes: Routes = [
 
@@ -27,7 +30,10 @@ export const routes: Routes = [
         { path: 'etablissement/edit/:idEtablissement', component: EditEtablissementComponent },
         { path: 'pack', component: ListPackComponent },
         { path: 'pack/create', component: CreatePackComponent },
-        { path: 'pack/edit/:idPack', component: EditPackComponent }
+        { path: 'pack/edit/:idPack', component: EditPackComponent },
+        { path: 'test', component: ListTestComponent },
+        { path: 'test/create', component: CreateTestComponent },
+        { path: 'test/edit/:idTest', component: EditTestComponent }
     ] }
 
 ];
