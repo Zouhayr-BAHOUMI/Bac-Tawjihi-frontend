@@ -1,1 +1,34 @@
-<p>create-test works!</p>
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Create Test</h1>
+</div>
+
+
+<form [formGroup]="createTestForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="titre">Test Title</label>
+    <input type="text" id="titre" class="form-control" formControlName="titre" placeholder="Enter test title" />
+    <div *ngIf="createTestForm.controls['titre'].invalid && createTestForm.controls['titre'].touched" class="text-danger">
+      Title is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Test Description</label>
+    <textarea id="description" class="form-control" formControlName="description" placeholder="Enter test description"></textarea>
+    <div *ngIf="createTestForm.controls['description'].invalid && createTestForm.controls['description'].touched" class="text-danger">
+      Description is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="duree">Duration</label>
+    <input type="text" id="duree" class="form-control" formControlName="duree" placeholder="Enter test duration" />
+    <div *ngIf="createTestForm.controls['duree'].invalid && createTestForm.controls['duree'].touched" class="text-danger">
+      Duration is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Create Test</button>
+  </div>
+</form>
