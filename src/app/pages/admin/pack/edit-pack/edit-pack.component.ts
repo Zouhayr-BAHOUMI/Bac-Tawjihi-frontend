@@ -36,6 +36,7 @@ export class EditPackComponent implements OnInit {
     this.editPackForm = this.formBuilder.group({
       nomPack: ['', Validators.required],
       typePack: ['', Validators.required],
+      statusPack: ['', Validators.required],
       contenu: ['', Validators.required],
       filierePack: [[], Validators.required], 
       prix: [0, [Validators.required, Validators.min(0)]],
@@ -59,6 +60,7 @@ export class EditPackComponent implements OnInit {
           this.editPackForm.patchValue({
             nomPack: response.nomPack,
             typePack: response.typePack,
+            statusPack: response.statusPack,
             contenu: response.contenu,
             filierePack: response.packFilieres,
             prix: response.prix,
