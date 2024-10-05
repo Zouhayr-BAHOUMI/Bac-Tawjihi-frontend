@@ -39,7 +39,7 @@
                         <td>{{ pack.prix }}DH</td>
                         <td>{{ pack.dateLimit | date }}</td>
                         <td>
-                            <a class="btn btn-success mr-2" [routerLink]="['/admin/admin-dashboard/packs/edit', pack.id]">Edit</a>
+                            <a class="btn btn-success mr-2" [routerLink]="['/admin/admin-dashboard/pack/edit', pack.id]">Edit</a>
                             <a class="btn btn-danger mr-2" (click)="openDeleteModal(pack)">Delete</a>
                         </td>
                     </tr>
