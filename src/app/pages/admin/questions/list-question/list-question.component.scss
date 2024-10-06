@@ -1,0 +1,82 @@
+.container {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem; 
+}
+
+h2 {
+    color: #0E4973;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.btn-add {
+    background-color: #0E4973;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add:hover {
+    background-color: #2877b0
+}
+
+.main{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 32%;
+    max-width: 27rem;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.card-header {
+    color: #0E4973;
+    font-weight: bold;
+    background-color: #fff;
+}
+
+.question{
+    margin-top: 0.6rem;
+    font-size: 0.9rem;
+}
+
+.btn-choice {
+    background-color: #fff;
+    border: 1px solid #0E4973;
+    color: #0E4973;
+    font-weight: 400;
+    margin-bottom: 0.2rem;
+    transition: all 0.3s ease;
+    font-size: 0.7rem;
+}
+
+.btn-choice:hover {
+    background-color: #ff907ffc;
+}
+
+.btn-choice.correct {
+    border-color: #15a002; 
+    color: #0E4973;
+}
+
+.btn-choice.correct:hover{
+    background-color: #6deb5d;
+}
+
+

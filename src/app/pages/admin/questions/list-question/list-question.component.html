@@ -1,0 +1,39 @@
+<div class="container">
+    <header class="header">
+      <h2>Questions</h2>
+      <button class="btn btn-add" routerLink="create">
+        Add Question
+      </button>
+    </header>
+    <div class="main">
+        <div class="card" *ngFor="let question of questions">
+            <div class="card-header d-flex justify-content-between">
+              <h6 class="question">{{ question.domain }} </h6> 
+              <div>
+                  <button pButton icon="pi pi-pencil" class="p-button p-button-text p-button-rounded" [routerLink]="['/admin/admin-dashboard/test/edit', question.id]" ></button>
+                  <button pButton icon="pi pi-trash" class="p-button-text p-button-rounded" (click)="openDeleteModal(question)"></button>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="card-text">{{ question.contenuQuestion }}</p>
+              <div class="d-grid gap-1">
+                <button *ngFor="let choice of question.choix" 
+                        class="btn btn-choice" 
+                        [class.correct]="choice.isCorrect">
+                  {{ choice.contenuChoix }}
+                </button>
+              </div>
+            </div>
+          </div>
+    </div>
+   
+  
+    <p-dialog header="Confirm Deletion" [(visible)]="showModal" [style]="{width: '50vw'}" [modal]="true">
+      <p class="m-0">Are you sure you want to delete this question?</p>
+      <ng-template pTemplate="footer">
+        <p-button icon="pi pi-times" (click)="cancelDelete()" label="No" styleClass="p-button-text"></p-button>
+        <p-button icon="pi pi-check" (click)="confirmDelete()" label="Yes" styleClass="p-button-text"></p-button>
+      </ng-template>
+    </p-dialog>
+  </div>
+  

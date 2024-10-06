@@ -1,0 +1,45 @@
+<div class="card">
+    <h2 class="title">Add New Question</h2>
+    <form  class="form" [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="contenuQuestion" class="label">Question</label>
+        <input
+          id="contenuQuestion"
+          formControlName="contenuQuestion"
+          placeholder="Enter your question here"
+          class="input"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="domain" class="label">Domain</label>
+        <select formControlName="domain" class="input">
+          <option *ngFor="let domain of domains" [value]="domain">{{domain}}</option>
+        </select>
+      </div>
+
+      <div class="choices">
+          <label class="label">Choices</label>
+          <div formGroupName="choix">
+            <div *ngFor="let i of [0, 1, 2, 3]" class="choice-group">
+              <input
+                type="radio"
+                [formControlName]="'isCorrect'"
+                [value]="i"
+                class="radio"
+              />
+              <input
+                [formControlName]="'contenuChoix' + i"
+                placeholder="Enter choice {{i + 1}}"
+                class="input choice-input"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="buttons">
+          <button type="submit" class="btn btn-primary" [disabled]="!questionForm.valid">
+            Save Question
+          </button>
+        </div>
+    </form>
+  </div>
