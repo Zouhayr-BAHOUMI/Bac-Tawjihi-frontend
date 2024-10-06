@@ -1,38 +1,97 @@
 <div class="container mt-5">
-    <div class="card">
-      <div class="card-body">
-        <h1 class=" text-primary mb-4">Update Profile</h1>
-        <form class="needs-validation" novalidate>
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <label for="firstName" class="form-label text-primary">First Name</label>
-              <input type="text" class="form-control border-primary" id="firstName" placeholder="Enter your first name" required>
-              <div class="invalid-feedback">Please enter your first name.</div>
-            </div>
-            <div class="col-md-6">
-              <label for="lastName" class="form-label text-primary">Last Name</label>
-              <input type="text" class="form-control border-primary" id="lastName" placeholder="Enter your last name" required>
-              <div class="invalid-feedback">Please enter your last name.</div>
-            </div>
+  <div class="card">
+    <div class="card-body">
+      <h1 class="text-primary mb-4">Update Profile</h1>
+      <form [formGroup]="updateProfileForm" (ngSubmit)="onSubmit()">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="firstName" class="form-label text-primary">First Name</label>
+            <input type="text" class="form-control border-primary" formControlName="prenom" placeholder="Enter your first name">
           </div>
-          <div class="mb-3">
-            <label for="email" class="form-label text-primary">Email</label>
-            <input type="email" class="form-control border-primary" id="email" placeholder="Enter your email" required>
-            <div class="invalid-feedback">Please enter a valid email address.</div>
+          <div class="col-md-6">
+            <label for="lastName" class="form-label text-primary">Last Name</label>
+            <input type="text" class="form-control border-primary" formControlName="nom" placeholder="Enter your last name">
           </div>
-          <div class="mb-3">
-            <label for="phone" class="form-label text-primary">Phone Number</label>
-            <input type="tel" class="form-control border-primary" id="phone" placeholder="Enter your phone number" required>
-            <div class="invalid-feedback">Please enter your phone number.</div>
-          </div>
-          <div class="mb-3">
-            <label for="address" class="form-label text-primary">Address</label>
-            <textarea class="form-control border-primary" id="address" placeholder="Enter your address" required></textarea>
-            <div class="invalid-feedback">Please enter your address.</div>
-          </div>
-          <button type="submit" class="btn btn-warning w-100 text-primary">Update Profile</button>
-        </form>
-      </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label text-primary">Email</label>
+          <input type="email" class="form-control border-primary" formControlName="email" placeholder="Enter your email">
+        </div>
+
+        <div class="mb-3">
+          <label for="fullname" class="form-label text-primary">Full Name</label>
+          <input type="text" class="form-control border-primary" formControlName="fullname" placeholder="Enter your full name">
+        </div>
+
+        <div class="mb-3">
+          <label for="cin" class="form-label text-primary">CIN</label>
+          <input type="text" class="form-control border-primary" formControlName="cin" placeholder="Enter your CIN">
+        </div>
+
+        <div class="mb-3">
+          <label for="massarCode" class="form-label text-primary">Massar Code</label>
+          <input type="text" class="form-control border-primary" formControlName="codeMassar" placeholder="Enter your Massar code">
+        </div>
+
+        <div class="mb-3">
+          <label for="imageUrl" class="form-label text-primary">Image</label>
+          <input type="file" class="form-control border-primary" (change)="onSelectFile($event)">
+        </div>
+
+        <div class="mb-3">
+          <label for="dateNaissence" class="form-label text-primary">Date of Birth</label>
+          <input type="date" class="form-control border-primary" formControlName="dateNaissence">
+        </div>
+
+        <div class="mb-3">
+          <label for="lieuNaissence" class="form-label text-primary">Place of Birth</label>
+          <input type="text" class="form-control border-primary" formControlName="lieuNaissence" placeholder="Enter your place of birth">
+        </div>
+
+        <div class="mb-3">
+          <label for="sexe" class="form-label text-primary">Sexe</label>
+          <select class="form-control border-primary" formControlName="sexe">
+            <option *ngFor="let sexe of sexeOptions" [value]="sexe">{{ sexe }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="tele" class="form-label text-primary">Phone Number</label>
+          <input type="tel" class="form-control border-primary" formControlName="tele" placeholder="Enter your phone number">
+        </div>
+
+        <div class="mb-3">
+          <label for="specialite" class="form-label text-primary">Speciality</label>
+          <select class="form-control border-primary" formControlName="specialite">
+            <option *ngFor="let spec of specialiteOptions" [value]="spec">{{ spec }}</option>
+          </select>
+        </div>
+
+        <div formGroupName="adresse" class="mb-3">
+          <label for="region" class="form-label text-primary">Region</label>
+          <select class="form-control border-primary" formControlName="region">
+            <option *ngFor="let region of regions" [value]="region">{{ region }}</option>
+          </select>
+        </div>
+        
+        <div formGroupName="adresse" class="mb-3">
+          <label for="province" class="form-label text-primary">Province</label>
+          <select class="form-control border-primary" formControlName="province">
+            <option *ngFor="let province of provinces" [value]="province">{{ province }}</option>
+          </select>
+        </div>
+        
+        <div formGroupName="adresse" class="mb-3">
+          <label for="ville" class="form-label text-primary">City</label>
+          <select class="form-control border-primary" formControlName="ville">
+            <option *ngFor="let ville of villes" [value]="ville">{{ ville }}</option>
+          </select>
+        </div>
+        
+
+        <button type="submit" class="btn btn-warning w-100 text-primary">Update Profile</button>
+      </form>
     </div>
   </div>
-  
+</div>

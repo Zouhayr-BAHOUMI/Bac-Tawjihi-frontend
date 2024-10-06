@@ -1,5 +1,8 @@
+import { Province } from "../enums/province";
+import { Region } from "../enums/region";
 import { Sexe } from "../enums/sexe";
 import { Specialite } from "../enums/specialite";
+import { Ville } from "../enums/ville";
 import { Adresse } from "./adresse";
 import { User } from "./user";
 
@@ -16,6 +19,11 @@ export interface Etudiant extends User{
     tele: string;
     specialite: Specialite; 
     codeMassar: string;
-    adresse?: Adresse;
+    adresse: {
+        region : Region
+        province: Province;
+        ville: Ville;
+
+    };
 
 }
