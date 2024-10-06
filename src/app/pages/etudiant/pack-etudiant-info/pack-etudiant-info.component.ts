@@ -7,6 +7,7 @@ import { Pack } from 'src/app/interfaces/pack';
 import { Etudiant } from 'src/app/interfaces/etudiant';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EtudiantService } from 'src/app/shared/services/etudiant.service';
+import { StripeService } from 'src/app/shared/services/stripe.service';
 
 @Component({
   selector: 'app-pack-etudiant-info',
@@ -23,6 +24,7 @@ export class PackEtudiantInfoComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private etudiantService: EtudiantService,
+    private stripeService: StripeService,
     private router: Router
   ) {}
 
