@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Pack } from 'src/app/interfaces/pack';
 import { PackService } from 'src/app/shared/services/pack.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { EtudiantService } from 'src/app/shared/services/etudiant.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-pricing',
@@ -15,7 +17,12 @@ export class PricingComponent implements OnInit{
 
   packs: Pack[] = [];
 
-  constructor(private packService: PackService) {}
+  constructor(
+    private packService: PackService,
+    private route: ActivatedRoute,
+    private etudiantService: EtudiantService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.getPacks();
@@ -32,5 +39,16 @@ export class PricingComponent implements OnInit{
       }
     );
   }
+
+  selectPack(idPack: number): void {
+    this.etudiantService.selectPack(idPack).subscribe(
+      (response: any) => {
+        this.router.navigate(['/student-details', idPack]);
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error.message);
+      }
+    );
+}
 
 }
