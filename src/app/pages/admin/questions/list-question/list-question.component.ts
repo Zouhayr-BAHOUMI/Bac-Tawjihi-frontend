@@ -49,9 +49,9 @@ export class ListQuestionComponent implements OnInit {
   }
 
   confirmDelete(): void {
-    if (this.questionToDelete) {
-      
-    }
+    if (this.questionToDelete && this.questionToDelete.id !== undefined) {
+      this.deleteQuestion(this.questionToDelete.id);
+  }
   }
 
   deleteQuestion(id: number): void {
