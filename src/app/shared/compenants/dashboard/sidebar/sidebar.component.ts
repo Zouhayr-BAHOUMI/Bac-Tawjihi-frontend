@@ -15,7 +15,7 @@ export class SidebarComponent {
   constructor(private authService: AuthService) {}
 
   isEtudiant(): boolean {
-    return this.authService.getCurrentUserRole() === 'USER';
+    return this.authService.getCurrentUserRole() === 'ETUDIANT';
   }
 
 }

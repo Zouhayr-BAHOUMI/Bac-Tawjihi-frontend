@@ -1,33 +1,33 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-    <li class="nav-item active">
+    <li *ngIf="!isEtudiant()" class="nav-item active">
       <a class="nav-link" routerLink="/admin/admin-dashboard">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span>
       </a>
     </li>
     <hr class="sidebar-divider">
-    <li class="nav-item">
+    <li *ngIf="!isEtudiant()" class="nav-item">
       <a class="nav-link collapsed"  routerLink="/admin/admin-dashboard/universite" data-toggle="collapse" data-target="#collapseClients"
          aria-expanded="true" aria-controls="collapseClients">
         <i class="fas fa-fw fa-users"></i>
         <span>gestion des university</span>
       </a>
     </li>
-    <li class="nav-item">
+    <li *ngIf="!isEtudiant()" class="nav-item">
       <a class="nav-link collapsed"  routerLink="/admin/admin-dashboard/etablissement" data-toggle="collapse" data-target="#collapseEvents"
          aria-expanded="true" aria-controls="collapseEvents">
         <i class="fas fa-fw fa-cog"></i>
         <span>gestion etablisements</span>
       </a>
     </li>
-    <li class="nav-item">
+    <li *ngIf="!isEtudiant()" class="nav-item">
       <a class="nav-link collapsed"  routerLink="/admin/admin-dashboard/pack" data-toggle="collapse" data-target="#collapseClients"
          aria-expanded="true" aria-controls="collapseClients">
         <i class="fas fa-fw fa-wrench"></i>
         <span>gestion des packs</span>
       </a>
     </li>
-    <li class="nav-item">
+    <li *ngIf="!isEtudiant()" class="nav-item">
       <a class="nav-link collapsed"  routerLink="/admin/admin-dashboard/test" data-toggle="collapse" data-target="#collapseClients"
          aria-expanded="true" aria-controls="collapseClients">
         <i class="fas fa-fw fa-wrench"></i>
@@ -35,14 +35,21 @@
       </a>
     </li>
     <li *ngIf="isEtudiant()" class="nav-item">
-      <a class="nav-link collapsed" routerLink="/admin/admin-dashboard/profile" data-toggle="collapse" data-target="#collapseClients"
+      <a class="nav-link collapsed" routerLink="" data-toggle="collapse" data-target="#collapseClients"
+         aria-expanded="true" aria-controls="collapseClients">
+        <i class="fas fa-fw fa-user"></i>
+        <span>Home</span>
+      </a>
+    </li>
+    <li *ngIf="isEtudiant()" class="nav-item">
+      <a class="nav-link collapsed" routerLink="/user/user-dashboard/update-profile" data-toggle="collapse" data-target="#collapseClients"
          aria-expanded="true" aria-controls="collapseClients">
         <i class="fas fa-fw fa-user"></i>
         <span>Update Profile</span>
       </a>
     </li>
     <li *ngIf="isEtudiant()" class="nav-item">
-      <a class="nav-link collapsed" routerLink="/admin/admin-dashboard/reset-password" data-toggle="collapse" data-target="#collapseClients"
+      <a class="nav-link collapsed" routerLink="/user/user-dashboard/reset-password" data-toggle="collapse" data-target="#collapseClients"
          aria-expanded="true" aria-controls="collapseClients">
         <i class="fas fa-fw fa-key"></i>
         <span>Reset Password</span>

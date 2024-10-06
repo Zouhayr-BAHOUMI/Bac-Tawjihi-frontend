@@ -68,8 +68,8 @@ export class LoginComponent {
         this.router.navigate(['/admin/admin-dashboard']);
         break;
 
-      case 'USER' :
-        this.router.navigate(['/user/user-home']);
+      case 'ETUDIANT' :
+        this.router.navigate(['user/user-dashboard']);
         break;
 
       default : this.router.navigate(['/login']);
