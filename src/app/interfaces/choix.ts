@@ -1,5 +1,5 @@
 export interface Choix {
-    id: number;
+    id?: number;
     contenuChoix: string;
     isCorrect: boolean;
 

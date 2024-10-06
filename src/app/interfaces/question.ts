@@ -3,7 +3,7 @@ import { Choix } from "./choix";
 
 export interface Question {
 
-    id: number;
+    id?: number;
     contenuQuestion: string;
     domain: Domain;
     choix: Choix[];
