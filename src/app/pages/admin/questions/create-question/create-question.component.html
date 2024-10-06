@@ -1,1 +1,33 @@
-<p>create-question works!</p>
+<div class="card">
+    <h2 class="title">Add New Question</h2>
+    <form  class="form">
+      <div class="form-group">
+        <label for="question" class="label">Question</label>
+        <input
+          id="question"
+          formControlName="question"
+          placeholder="Enter your question here"
+          class="input"
+        />
+      </div>
+      <div class="choices">
+        <label class="label">Choices</label>
+        <div formArrayName="choices"  class="choice-group">
+          <input
+            type="checkbox"
+            
+            class="checkbox"
+          />
+          <input
+            
+            class="input choice-input"
+          />
+        </div>
+      </div>
+      <div class="buttons">
+        <button type="submit" class="btn btn-primary">
+          Save Question
+        </button>
+      </div>
+    </form>
+  </div>
