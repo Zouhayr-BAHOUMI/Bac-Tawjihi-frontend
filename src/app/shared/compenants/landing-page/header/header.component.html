@@ -13,7 +13,7 @@
     <button class="login-button" *ngIf="!isLoggedIn" routerLink="/login">Se Connecter</button>
 
     <div *ngIf="isLoggedIn" class="user-menu">
-        <img src="assets/etudiant-avatar.png" alt="Etudiant" class="user-avatar">
+        <img [src]="'assets/images/' + etudiant?.imageUrl" alt="Image" class="user-avatar"  >
         <div class="dropdown-content">
           <a routerLink="user/user-dashboard">Profile</a>
           <a (click)="logout()">Logout</a>

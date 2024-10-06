@@ -55,10 +55,11 @@ body {
 }
   
   .user-avatar {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
+    height: 3.4em;
+    width: 3.4em;
+    border-radius: 60%;
     cursor: pointer;
+    border-color: #0e4973;
   }
   
   .dropdown-content {
@@ -87,7 +88,7 @@ body {
   .dropdown-content a:hover {
     background-color: #f1f1f1;
   }
-  
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
