@@ -34,4 +34,25 @@
         <span>gestion des tests</span>
       </a>
     </li>
+    <li *ngIf="isEtudiant()" class="nav-item">
+      <a class="nav-link collapsed" routerLink="/admin/admin-dashboard/profile" data-toggle="collapse" data-target="#collapseClients"
+         aria-expanded="true" aria-controls="collapseClients">
+        <i class="fas fa-fw fa-user"></i>
+        <span>Update Profile</span>
+      </a>
+    </li>
+    <li *ngIf="isEtudiant()" class="nav-item">
+      <a class="nav-link collapsed" routerLink="/admin/admin-dashboard/reset-password" data-toggle="collapse" data-target="#collapseClients"
+         aria-expanded="true" aria-controls="collapseClients">
+        <i class="fas fa-fw fa-key"></i>
+        <span>Reset Password</span>
+      </a>
+    </li>
+    <li *ngIf="isEtudiant()" class="nav-item">
+      <a class="nav-link collapsed" routerLink="/admin/admin-dashboard/upload-documents" data-toggle="collapse" data-target="#collapseClients"
+         aria-expanded="true" aria-controls="collapseClients">
+        <i class="fas fa-fw fa-file-upload"></i>
+        <span>Upload Documents</span>
+      </a>
+    </li>
   </ul>
