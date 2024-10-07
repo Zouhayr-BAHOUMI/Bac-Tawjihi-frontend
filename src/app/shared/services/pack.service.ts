@@ -9,11 +9,20 @@ import { Pack } from 'src/app/interfaces/pack';
 export class PackService {
 
   private apiUrl = 'http://localhost:8082/admin/gestion-packs';
+  private apiUrl2 = 'http://localhost:8082/home';
 
   constructor(private http: HttpClient) { }
 
   public getPacks(): Observable<Pack[]> {
     return this.http.get<Pack[]>(`${this.apiUrl}/`);
+  }
+
+  public getPacksWithFilieres(): Observable<Pack[]> {
+    return this.http.get<Pack[]>(`${this.apiUrl2}/packs`);
+  }
+
+  public getPackWithFilieresById(idPack: number): Observable<Pack> {
+    return this.http.get<Pack>(`${this.apiUrl2}/packs/${idPack}`);
   }
 
   public addPack(pack: Pack): Observable<string> {

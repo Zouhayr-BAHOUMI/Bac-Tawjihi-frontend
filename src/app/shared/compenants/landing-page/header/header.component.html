@@ -10,5 +10,13 @@
         <a href="#comment-participer">Comment participer ?</a>
         <a href="#contact">Contact</a>
     </nav>
-    <button class="login-button" routerLink="/login">Se Connecter</button>
+    <button class="login-button" *ngIf="!isLoggedIn" routerLink="/login">Se Connecter</button>
+
+    <div *ngIf="isLoggedIn" class="user-menu">
+        <img [src]="'assets/images/' + etudiant?.imageUrl" alt="Image" class="user-avatar"  >
+        <div class="dropdown-content">
+          <a routerLink="user/user-dashboard">Profile</a>
+          <a (click)="logout()">Logout</a>
+        </div>
+      </div>
 </header>

@@ -18,6 +18,10 @@ import { EditTestComponent } from './pages/admin/test/edit-test/edit-test.compon
 import { ListQuestionComponent } from './pages/admin/questions/list-question/list-question.component';
 import { CreateQuestionComponent } from './pages/admin/questions/create-question/create-question.component';
 import { EditQuestionComponent } from './pages/admin/questions/edit-question/edit-question.component';
+import { UserDashboardComponent } from './pages/etudiant/user-dashboard/user-dashboard.component';
+import { UpdateProfileComponent } from './pages/etudiant/profile/update-profile/update-profile.component';
+import { ResetPasswordComponent } from './pages/etudiant/profile/reset-password/reset-password.component';
+import { PackEtudiantInfoComponent } from './pages/etudiant/pack-etudiant-info/pack-etudiant-info.component';
 
 export const routes: Routes = [
 
@@ -40,6 +44,13 @@ export const routes: Routes = [
         { path: 'test/:idTest/questions', component: ListQuestionComponent },
         { path: 'test/:idTest/questions/create', component: CreateQuestionComponent }, 
         { path: 'test/:idTest/questions/edit/:idQuestion', component: EditQuestionComponent }
-    ] }
+    ] },
+    { path: 'user/user-dashboard', component: UserDashboardComponent, children : [
+        { path: '', component: UpdateProfileComponent },
+        { path: 'update-profile', component: UpdateProfileComponent },
+        { path: 'reset-password', component: ResetPasswordComponent },
+    ] },
+    { path: 'student-details/:idPack', component: PackEtudiantInfoComponent },
+
 
 ];

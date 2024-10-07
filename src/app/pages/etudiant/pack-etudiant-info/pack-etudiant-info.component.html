@@ -1,0 +1,18 @@
+<div class="student-pack-info">
+    <h2>Informations de l'Étudiant</h2>
+    <p>Nom: {{ etudiant.nom }}</p>
+    <p>Prénom: {{ etudiant.prenom }}</p>
+    <p>Téléphone: {{ etudiant.tele }}</p>
+    <p>Email: {{ etudiant.email }}</p> 
+    
+    <h2>Packs Choisi</h2>
+    <p>Type de Pack: {{ pack.typePack }}</p>
+    <p>Prix: {{ pack.prix }}DH</p>
+  
+    <button (click)="pay()">Payer</button>
+    <button (click)="cancel()">Annuler</button>
+  </div>
+
+  <div id="card-element"></div>
+
+  

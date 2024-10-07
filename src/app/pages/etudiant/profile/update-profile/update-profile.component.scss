@@ -1,0 +1,25 @@
+.text-primary {
+    color: #0E4973 !important; /* Custom primary color */
+  }
+  
+  .border-primary {
+    border-color: #0E4973 !important; /* Custom border color */
+  }
+  
+  .btn-warning {
+    background-color: #E3E817; /* Custom button background color */
+    color: #0E4973; /* Custom button text color */
+  }
+  
+  .btn-warning:hover {
+    background-color: rgba(227, 232, 23, 0.8); /* Adjust opacity on hover */
+  }
+  
+  .card {
+    border: none; /* Remove card border */
+  }
+  
+  .card-body {
+    padding: 2rem; /* Adjust padding if necessary */
+  }
+  
