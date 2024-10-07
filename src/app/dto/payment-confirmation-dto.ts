@@ -4,6 +4,6 @@ import { Pack } from "../interfaces/pack";
 export interface PaymentConfirmationDto {
 
     paymentIntentId: string; 
-    etudiant: Etudiant; 
-    pack: Pack;
+    etudiantId: number; 
+    packId: number;
 }
