@@ -18,11 +18,11 @@ export class TestService {
   }
 
   public getRandomTest(): Observable<Test> {
-    return this.http.get<Test>(`${this.apiUrl}/test/random-test`);
+    return this.http.get<Test>(`${this.apiUrl2}/test/random-test`);
   }
 
   public assignTestToEtudiant(idTest: number): Observable<void> {
-    return this.http.post<void>(`${this.apiUrl}/test/${idTest}/assign`, {});
+    return this.http.post<void>(`${this.apiUrl2}/test/${idTest}/assign`, {});
   }
 
   public addTest(test: Test): Observable<string> {

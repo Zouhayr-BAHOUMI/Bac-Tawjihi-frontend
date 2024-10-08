@@ -13,9 +13,58 @@
                 <li>Recevez des recommandations adaptées à votre profil.</li>
             </ul>
         </div>
-        <button class="cta-button" >Commencez le test</button>
+        <button class="cta-button" (click)="startTest()" >Commencez le test</button>
     </div>
     <div class="image-wrapper">
         <img src="assets/images/test.png" alt="Étudiant réfléchissant à son bureau">
     </div>
+
+    <!-- <div class="popup" *ngIf="showPopup">
+        <div class="popup-content">
+          <h2>{{ randomTest?.titre }}</h2>
+          <p>{{ randomTest?.description }}</p>
+          <p>Durée: {{ randomTest?.duree }}</p>
+          <button type="button" class="btn btn-secondary" (click)="confirmTest()">Commencer</button>
+          <button type="button" class="btn btn-danger" (click)="closePopup()">Annuler</button>
+        </div>
+    </div> -->
+
+    <div class="modal fade" [ngClass]="{'show': showPopup}" [style.display]="showPopup ? 'block' : 'none'" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-white">
+              <h5 class="modal-title">{{ randomTest?.titre }}</h5>
+              <button type="button" class="btn-close btn-close-white" (click)="closePopup()"></button>
+            </div>
+            <div class="modal-body">
+              <p>{{ randomTest?.description }}</p>
+              <p><strong>Durée:</strong> {{ randomTest?.duree }}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="closePopup()">Annuler</button>
+              <button type="button" class="btn " (click)="confirmTest()">Commencer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-backdrop fade" [ngClass]="{'show': showPopup}" [style.display]="showPopup ? 'block' : 'none'"></div>
 </section>
+
+<!-- <div class="modal fade" *ngIf="showPopup" id="testModal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="testModalLabel">{{ randomTest?.titre }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="testDescription">{{ randomTest?.description }}</p>
+                <p id="testDuration">Durée: {{ randomTest?.duree }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="startTestBtn" (click)="confirmTest()" >Commencer</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="closePopup()" >Annuler</button>
+            </div>
+        </div>
+    </div>
+</div> -->

@@ -57,6 +57,37 @@ body {
     height: auto;
     margin-top: 2rem;
 }
+
+.modal-content {
+    border-radius: 15px;
+  }
+  
+.modal-header {
+    background-color: #3b6c90;
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+  
+.modal-footer {
+    .btn-secondary {
+      background-color: #E3E817;
+      color: #0E4973;
+      border: none;
+      &:hover {
+        background-color: darken(#E3E817, 10%);
+      }
+    }
+    .btn{
+        color: #0e4973;
+        border-color: #0E4973;
+        &:hover {
+            background-color: darken(#E3E817, 10%);
+        }
+    }
+  }
+
+
 @media (max-width: 991px) {
     .recommendation-container {
         flex-direction: column;
