@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Etudiant } from 'src/app/interfaces/etudiant';
+import { Question } from 'src/app/interfaces/question';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,9 @@ export class EtudiantService {
 
   public selectPack(idPack: number): Observable<Etudiant> {
     return this.http.post<Etudiant>(`${this.apiUrl}/choisir-pack/${idPack}`, {});
+  }
+
+  public getRandomQuestions(idTest: number): Observable<Question[]> {
+    return this.http.get<Question[]>(`${this.apiUrl}/tenRandom-questions?idTest=${idTest}`);
   }
 }
