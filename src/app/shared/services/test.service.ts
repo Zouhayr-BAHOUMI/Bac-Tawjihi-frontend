@@ -8,12 +8,21 @@ import { Test } from 'src/app/interfaces/test';
 })
 export class TestService {
 
-  private apiUrl = 'http://localhost:8082/admin/gestion-tests';  
+  private apiUrl = 'http://localhost:8082/admin/gestion-tests'; 
+  private apiUrl2 = 'http://localhost:8082/home'; 
 
   constructor(private http: HttpClient) { }
 
   public getTests(): Observable<Test[]> {
     return this.http.get<Test[]>(`${this.apiUrl}/`);
+  }
+
+  public getRandomTest(): Observable<Test> {
+    return this.http.get<Test>(`${this.apiUrl}/test/random-test`);
+  }
+
+  public assignTestToEtudiant(idTest: number): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}/test/${idTest}/assign`, {});
   }
 
   public addTest(test: Test): Observable<string> {
