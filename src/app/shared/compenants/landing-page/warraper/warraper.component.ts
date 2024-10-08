@@ -6,11 +6,13 @@ import { ServicesSectionComponent } from "../services-section/services-section.c
 import { TestSectionComponent } from "../test-section/test-section.component";
 import { EcolesSectionComponent } from "../ecoles-section/ecoles-section.component";
 import { PricingComponent } from "../pricing/pricing.component";
+import { FooterComponent } from "../../dashboard/footer/footer.component";
+import { MainFooterComponent } from "../main-footer/main-footer.component";
 
 @Component({
   selector: 'app-warraper',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, HeroSectionComponent, ServicesSectionComponent, TestSectionComponent, EcolesSectionComponent, PricingComponent],
+  imports: [CommonModule, HeaderComponent, HeroSectionComponent, ServicesSectionComponent, TestSectionComponent, EcolesSectionComponent, PricingComponent, MainFooterComponent],
   templateUrl: './warraper.component.html',
   styleUrls: ['./warraper.component.scss']
 })
