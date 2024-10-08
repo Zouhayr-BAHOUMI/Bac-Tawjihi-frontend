@@ -22,7 +22,7 @@ export class TestService {
   }
 
   public assignTestToEtudiant(idTest: number): Observable<void> {
-    return this.http.post<void>(`${this.apiUrl2}/test/${idTest}/assign`, {});
+    return this.http.post<void>(`${this.apiUrl2}/test/${idTest}/assign`, {}, { responseType: 'text' as 'json' });
   }
 
   public addTest(test: Test): Observable<string> {

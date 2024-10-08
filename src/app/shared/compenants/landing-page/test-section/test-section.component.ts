@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Test } from 'src/app/interfaces/test';
 import { TestService } from 'src/app/shared/services/test.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-test-section',
@@ -15,7 +16,10 @@ export class TestSectionComponent {
   showPopup: boolean = false;
   randomTest: Test | null = null;
 
-  constructor(private testService: TestService) {}
+  constructor(
+    private testService: TestService,
+    private router : Router
+  ) {}
 
   startTest() {
     this.testService.getRandomTest().subscribe({
@@ -35,6 +39,7 @@ export class TestSectionComponent {
         next: () => {
           this.showPopup = false;
           console.log('Test assigned successfully');
+          this.router.navigate(['/question-list', this.randomTest?.id]);
         },
         error: (err) => {
           console.error('Error assigning test', err);

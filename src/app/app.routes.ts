@@ -22,6 +22,7 @@ import { UserDashboardComponent } from './pages/etudiant/user-dashboard/user-das
 import { UpdateProfileComponent } from './pages/etudiant/profile/update-profile/update-profile.component';
 import { ResetPasswordComponent } from './pages/etudiant/profile/reset-password/reset-password.component';
 import { PackEtudiantInfoComponent } from './pages/etudiant/pack-etudiant-info/pack-etudiant-info.component';
+import { QuizQuestionComponent } from './pages/etudiant/quiz-question/quiz-question.component';
 
 export const routes: Routes = [
 
@@ -51,6 +52,7 @@ export const routes: Routes = [
         { path: 'reset-password', component: ResetPasswordComponent },
     ] },
     { path: 'student-details/:idPack', component: PackEtudiantInfoComponent },
+    { path: 'question-list/:id', component: QuizQuestionComponent },
 
 
 ];
