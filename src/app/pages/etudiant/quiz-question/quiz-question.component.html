@@ -1,11 +1,19 @@
 <div class="quiz-container">
-    <h1 class="quiz-title">Quiz</h1>
-    <form (ngSubmit)="submitQuiz()">
+  <h1 class="quiz-title">Quiz</h1>
+  <form (ngSubmit)="submitQuiz()">
+    <div class="questions-grid">
       <div *ngFor="let question of questions; let i = index" class="question-card">
         <h2 class="question-number">Question {{ i + 1 }}</h2>
         <p class="question-text">{{ question.contenuQuestion }}</p>
-        
+        <div class="choices-container">
+          <div *ngFor="let choice of question.choix; let j = index" 
+               class="choice-item" 
+              >
+            {{ choice.contenuChoix }}
+          </div>
+        </div>
       </div>
-      <button type="submit" class="submit-button">Submit Quiz</button>
-    </form>
-  </div>
+    </div>
+    <button type="submit" class="submit-button">Submit Quiz</button>
+  </form>
+</div>
