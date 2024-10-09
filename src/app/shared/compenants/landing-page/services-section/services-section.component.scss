@@ -1,43 +1,48 @@
-
 body {
     font-family: Poppins, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #ffffff;
 }
+
 .services-section {
     max-width: 1200px;
     margin: 0 auto;
     padding: 80px 20px;
     text-align: center;
 }
+
 .section-title {
-    color: #112650;
+    color: #0e4973;
     font-size: 36px;
     font-weight: 600;
     margin-bottom: 20px;
 }
+
 .section-description {
-    color: #333;
+    color: #0e4973;
     font-size: 18px;
     max-width: 800px;
     margin: 0 auto 60px;
     line-height: 1.5;
 }
+
 .services-container {
     display: flex;
     justify-content: center;
     gap: 3rem;
     flex-wrap: wrap;
 }
+
 .service-card {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    width: 350px;
+    width: calc(33.333% - 2rem);
     text-align: center;
 }
+
 .service-icon {
     background-color: #e3e817;
     border-radius: 50%;
@@ -48,28 +53,90 @@ body {
     align-items: center;
     margin: 0 auto 20px;
 }
+
 .service-icon img {
     width: 5rem;
     height: 4rem;
 }
+
 .service-title {
     color: #112650;
     font-size: 24px;
     font-weight: 500;
     margin-bottom: 15px;
 }
+
 .service-description {
     color: #333;
     font-size: 16px;
     line-height: 1.5;
 }
+
+/* Tablet Styles */
 @media (max-width: 991px) {
+    .services-section {
+        padding: 60px 20px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .section-description {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+
+    .services-container {
+        gap: 2rem;
+    }
+
+    .service-card {
+        width: calc(50% - 1rem);
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+    .services-section {
+        padding: 40px 15px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .section-description {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+
     .services-container {
         flex-direction: column;
         align-items: center;
+        gap: 1.5rem;
     }
+
     .service-card {
         width: 100%;
         max-width: 300px;
+    }
+
+    .service-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .service-icon img {
+        width: 4rem;
+        height: 3rem;
+    }
+
+    .service-title {
+        font-size: 20px;
+    }
+
+    .service-description {
+        font-size: 14px;
     }
 }

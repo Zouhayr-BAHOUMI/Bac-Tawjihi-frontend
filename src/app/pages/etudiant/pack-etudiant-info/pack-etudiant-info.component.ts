@@ -22,8 +22,8 @@ declare var Stripe: any;
 })
 export class PackEtudiantInfoComponent implements OnInit {
 
-  etudiant!: Etudiant;
-  pack!: Pack;
+  etudiant: Etudiant = {} as Etudiant; 
+  pack: Pack = {} as Pack;
   stripe: any; 
   cardElement: any;
 
@@ -63,6 +63,8 @@ export class PackEtudiantInfoComponent implements OnInit {
     );
   }
 
+  
+
   pay(): void {
     const paymentRequest: PaymentRequestDto = {
       amount: this.pack.prix,
@@ -90,11 +92,11 @@ export class PackEtudiantInfoComponent implements OnInit {
             if (result.paymentIntent.status === 'succeeded') {
               const confirmationDto: PaymentConfirmationDto = {
                 paymentIntentId: result.paymentIntent.id,
-                etudiant: this.etudiant,
-                pack: this.pack
+                etudiantId: this.etudiant.id,
+                packId: this.pack.id
               };
 
-              console.log('Payment Confirmation DTO:', confirmationDto);
+              console.log('Sending confirmation DTO:', JSON.stringify(confirmationDto));
 
               this.stripeService.confirmPayment(confirmationDto).subscribe(
                 (recu) => {

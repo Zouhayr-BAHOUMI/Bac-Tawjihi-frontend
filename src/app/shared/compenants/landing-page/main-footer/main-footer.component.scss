@@ -1,0 +1,123 @@
+.footer {
+    background-color: rgba(245, 245, 245, 0.51);
+    font-family: Circular Std, sans-serif;
+    color: #0a142f;
+    padding: 100px 80px;
+  }
+  
+  .footer-content {
+    max-width: 1074px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .footer-heading {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2.8px;
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-bottom: 20px;
+    color: #065287;
+  }
+  
+  .footer-subheading {
+    font: 600 2.6rem Abhaya Libre, -apple-system, Roboto, Helvetica, sans-serif;
+    margin-bottom: 19px;
+    color: #0E4973;
+  }
+  
+  .footer-description {
+    font-size: 1rem;
+    line-height: 33px;
+    opacity: 0.8;
+    max-width: 581px;
+    margin: 0 auto 45px;
+    color: #0E4973;
+  }
+  
+  .contact-button {
+    background-color: #165a8b;
+    color: #E3E817;
+    border: none;
+    border-radius: 30px;
+    padding: 20px 59px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.11);
+  }
+  
+  .copyright {
+    font-size: 1rem;
+    opacity: 0.6;
+    margin-top: 50px;
+  }
+  
+  .footer-divider {
+    border: none;
+    border-top: 1px solid #0a142f;
+    margin: 50px 0 32px;
+  }
+  
+  .footer-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .company-logo {
+    width: 84px;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-links li {
+    margin: 0 20px;
+  }
+  
+  .nav-links a {
+    color: #0E4973;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .decorative-image {
+    width: 255px;
+  }
+  
+  @media (max-width: 991px) {
+    .footer {
+      padding: 60px 20px;
+    }
+  
+    .footer-subheading {
+      font-size: 40px;
+    }
+  
+    .footer-description {
+      max-width: 100%;
+    }
+  
+    .contact-button {
+      padding: 15px 40px;
+    }
+  
+    .footer-nav {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .decorative-image {
+      max-width: 100%;
+    }
+  }

@@ -33,7 +33,8 @@
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 20px;
-    max-width: 300px;
+    max-width: 350px;
+    cursor: pointer;
   }
   
   .school-image {
@@ -44,15 +45,15 @@
   }
   
   .school-name {
-    font-size: 14px;
+    font-size: 0.9rem;
     font-weight: 600;
-    margin-top: 16px;
+    margin-top: 0.8rem;
   }
   
   .school-description {
-    font-size: 12px;
+    font-size: 0.8rem;
     font-weight: 400;
-    margin-top: 16px;
+    margin-top: 0.5rem;
   }
   
   .view-more-btn {

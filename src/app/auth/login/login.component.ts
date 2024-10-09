@@ -7,11 +7,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/auth.service';
+import { HeaderComponent } from "../../shared/compenants/landing-page/header/header.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatFormFieldModule, MatInputModule, MatCardModule, MatCheckboxModule, ReactiveFormsModule],
+  imports: [CommonModule, RouterModule, MatFormFieldModule, MatInputModule, MatCardModule, MatCheckboxModule, ReactiveFormsModule, HeaderComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })

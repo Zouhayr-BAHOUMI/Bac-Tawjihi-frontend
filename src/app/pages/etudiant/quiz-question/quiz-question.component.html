@@ -1,0 +1,11 @@
+<div class="quiz-container">
+    <h1 class="quiz-title">Quiz</h1>
+    <form (ngSubmit)="submitQuiz()">
+      <div *ngFor="let question of questions; let i = index" class="question-card">
+        <h2 class="question-number">Question {{ i + 1 }}</h2>
+        <p class="question-text">{{ question.contenuQuestion }}</p>
+        
+      </div>
+      <button type="submit" class="submit-button">Submit Quiz</button>
+    </form>
+  </div>
