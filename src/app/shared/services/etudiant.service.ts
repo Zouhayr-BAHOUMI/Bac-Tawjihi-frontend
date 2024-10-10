@@ -31,7 +31,7 @@ export class EtudiantService {
     return this.http.get<Question[]>(`${this.apiUrl}/tenRandom-questions?idTest=${idTest}`);
   }
 
-  submitAnswers(reponsesChoisi: number[]): Observable<any> {
+  submitReponses(reponsesChoisi: number[]): Observable<any> {
     return this.http.post(`${this.apiUrl}/test/submit`, reponsesChoisi);
   }
 }

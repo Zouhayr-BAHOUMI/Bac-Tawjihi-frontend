@@ -4,20 +4,19 @@
       Découvrez les écoles qui vous ouvriront les portes du succès.
     </p>
   
-    <div class="school-grid">
-      <article class="school-card">
+    <div class="school-grid"  >
+      <article class="school-card" *ngFor="let etablissement of etablissements">
         <img
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/86280b132dfb165730fbbb6e2f014fd453729a63e32b03dc0936e1e1648e48db?placeholderIfAbsent=true&apiKey=9cd7fe7bfd954773b6537fc48cf5cd61"
+        [src]="'assets/images/' + etablissement.imageUrl" 
           alt="Université mohammed vi polytechnique"
           class="school-image"
         />
-        <h2 class="school-name">Université mohammed vi polytechnique</h2>
+        <h2 class="school-name">{{ etablissement.nomEtablissement }}</h2>
         <p class="school-description">
-          Institution moderne axée sur la recherche, l'innovation, et la formation
-          pratique dans les sciences et l'ingénierie...
+          {{ etablissement.localisation }}
         </p>
       </article>
-  
+<!--   
       <article class="school-card">
         <img
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e97c17a4133917c7beedb4dead5ff42eae8f98976084aa64e985f2fa0079961?placeholderIfAbsent=true&apiKey=9cd7fe7bfd954773b6537fc48cf5cd61"
@@ -42,7 +41,7 @@
           Institution dédiée à l'agronomie, offrant une formation spécialisée dans
           les sciences agricoles...
         </p>
-      </article>
+      </article> -->
     </div>
   
     <button class="view-more-btn">
