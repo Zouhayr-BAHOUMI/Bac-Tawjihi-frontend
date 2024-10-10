@@ -33,7 +33,9 @@
           <label for="massarCode" class="form-label text-primary">Massar Code</label>
           <input type="text" class="form-control border-primary" formControlName="codeMassar" placeholder="Enter your Massar code">
         </div>
-
+        
+        
+        <img *ngIf="etudiant.imageUrl" [src]="'assets/images/' + etudiant.imageUrl" alt="Current Image" class="img-thumbnail" style="max-width: 130px;">
         <div class="mb-3">
           <label for="imageUrl" class="form-label text-primary">Image</label>
           <input type="file" class="form-control border-primary" (change)="onSelectFile($event)">
