@@ -1,7 +1,10 @@
-<app-header></app-header>
-<app-hero-section></app-hero-section>
-<app-services-section></app-services-section>
-<app-test-section></app-test-section>
-<app-ecoles-section ></app-ecoles-section>
-<app-pricing></app-pricing>
-<app-main-footer></app-main-footer>
+<app-loading *ngIf="isLoading"></app-loading>
+    <ng-container *ngIf="!isLoading">
+      <app-header></app-header>
+      <app-hero-section></app-hero-section>
+      <app-services-section></app-services-section>
+      <app-test-section></app-test-section>
+      <app-ecoles-section></app-ecoles-section>
+      <app-pricing></app-pricing>
+      <app-main-footer></app-main-footer>
+    </ng-container>
