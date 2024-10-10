@@ -17,6 +17,8 @@ export class QuizQuestionComponent {
 
   questions: Question[] = [];
   selectedAnswers: { [key: number]: string } = {};
+  reponsesChoisi: { [idQuestion: number]: { idChoix: number, isCorrect: boolean } } = {};
+  selectedForQuestion: { [idQuestion: number]: boolean } = {}; 
 
   constructor(
     private route: ActivatedRoute,
@@ -42,9 +44,29 @@ export class QuizQuestionComponent {
     );
   }
 
+  selectChoice(idQuestion: number, idChoix: number, isCorrect: boolean) {
+
+    if (this.selectedForQuestion[idQuestion]) {
+      return;
+    }
+
+    this.reponsesChoisi[idQuestion] = { idChoix, isCorrect };
+    this.selectedForQuestion[idQuestion] = true;
+  }
+
   submitQuiz() {
-    console.log('Submitted answers:');
-    // Implement the logic to submit the answers to your backend
+
+    const idSelectedChoix = Object.values(this.reponsesChoisi).map(answer => answer.idChoix);
+    this.etudiantService.submitReponses(idSelectedChoix).subscribe(
+      (response: any) => {
+        console.log('Quiz result:', response);
+        alert(response); 
+      },
+      (error: HttpErrorResponse) => {
+        console.error('Error submitting quiz:', error);
+      }
+    );
+
   }
 
 }

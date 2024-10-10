@@ -32,6 +32,6 @@ export class EtudiantService {
   }
 
   submitReponses(reponsesChoisi: number[]): Observable<any> {
-    return this.http.post(`${this.apiUrl}/test/submit`, reponsesChoisi);
+    return this.http.post(`${this.apiUrl}/test/submit`, reponsesChoisi, { responseType: 'text' });
   }
 }

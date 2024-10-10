@@ -71,6 +71,39 @@ $selected-color: #93c5fd;
   }
 }
 
+.choice-item {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.choice-item.correct {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.choice-item.incorrect {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.green-icon {
+  color: green;
+  margin-left: 10px;
+}
+
+.red-icon {
+  color: red;
+  margin-left: 10px;
+}
+
+.choice-item.disabled {
+  pointer-events: none; 
+  opacity: 0.6;
+}
+
 .submit-button {
   display: block;
   width: 100%;
