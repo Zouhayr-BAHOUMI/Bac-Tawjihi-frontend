@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from "../header/header.component";
 import { Etablissement } from 'src/app/interfaces/etablissement';
 import { EtablissementService } from 'src/app/shared/services/etablissement.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { MainFooterComponent } from "../main-footer/main-footer.component";
+import { FooterComponent } from "../../dashboard/footer/footer.component";
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-ecoles-section',
+  selector: 'app-all-etablissement',
   standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './ecoles-section.component.html',
-  styleUrls: ['./ecoles-section.component.scss']
+  imports: [CommonModule,RouterModule, HeaderComponent, MainFooterComponent, FooterComponent],
+  templateUrl: './all-etablissement.component.html',
+  styleUrls: ['./all-etablissement.component.scss']
 })
-export class EcolesSectionComponent implements OnInit {
+export class AllEtablissementComponent implements OnInit{
 
   etablissements: Etablissement[] = [];
 
@@ -28,7 +31,6 @@ export class EcolesSectionComponent implements OnInit {
     this.etablissementService.getHomeEtablissements().subscribe(
       (response: Etablissement[]) => {
         this.etablissements = response;
-        this.etablissements = response.slice(0, 3);
       },
       (error: HttpErrorResponse) => {
         console.log(error.message);
