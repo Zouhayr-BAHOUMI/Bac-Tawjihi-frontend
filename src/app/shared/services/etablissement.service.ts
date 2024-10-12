@@ -61,4 +61,8 @@ export class EtablissementService {
   searchEtablissements(query: string): Observable<Etablissement[]> {
     return this.http.get<Etablissement[]>(`${this.apiUrl2}/search?query=${query}`);
   }
+
+  public getHomeEtablissementById(idEtablissement: number): Observable<Etablissement> {
+    return this.http.get<Etablissement>(`${this.apiUrl2}/idEtablissement?idEtablissement=${idEtablissement}`);
+  }
 }

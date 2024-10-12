@@ -27,7 +27,7 @@
   
   <div class="establishments-grid mt-5">
 
-    <article class="establishment-card" *ngFor="let etablissement of etablissements" >
+    <article class="establishment-card" *ngFor="let etablissement of etablissements" [routerLink]="['/etablissement-details', etablissement.id]" >
       <img
       [src]="'assets/images/' + etablissement.imageUrl" 
         alt="Université mohammed vi polytechnique"
@@ -38,7 +38,6 @@
         <p class="establishment-description">{{ etablissement.localisation }}</p>
       </div>
     </article>
-    <!-- End of repeating article -->
   </div>
   
   <nav aria-label="Page navigation" class="mt-4">

@@ -26,6 +26,7 @@ import { QuizQuestionComponent } from './pages/etudiant/quiz-question/quiz-quest
 import { AllEtablissementComponent } from './shared/compenants/landing-page/all-etablissement/all-etablissement.component';
 import { AboutUsComponent } from './shared/compenants/landing-page/about-us/about-us.component';
 import { ParticiperComponent } from './shared/compenants/landing-page/participer/participer.component';
+import { EtablissementDetailsComponent } from './shared/compenants/landing-page/etablissement-details/etablissement-details.component';
 
 export const routes: Routes = [
 
@@ -59,6 +60,7 @@ export const routes: Routes = [
     { path: 'all-etablissements', component: AllEtablissementComponent },
     { path: 'about-us', component: AboutUsComponent },
     { path: 'participer', component: ParticiperComponent },
+    { path: 'etablissement-details/:id', component: EtablissementDetailsComponent },
 
 
 ];

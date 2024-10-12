@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="container mt-5">
+  <h1 class="establishment-title">{{ etablissement?.nomEtablissement }}</h1>
+  <div class="establishment-details">
+    <div class="establishment-image">
+      <img [src]="'assets/images/' + etablissement?.imageUrl" [alt]="etablissement?.nomEtablissement">
+    </div>
+    <div class="establishment-info">
+      <div class="info-card">
+        <h5>Details</h5>
+        <p><strong>Type:</strong> {{ etablissement?.typeEtablissement }}</p>
+        <p><strong>Université:</strong> {{ etablissement?.universite?.nomUniversite }}</p>
+        <p><strong>Localisation:</strong> {{ etablissement?.localisation }}</p>
+        <p><strong>Adresse:</strong> {{ etablissement?.adresse?.region }}, {{ etablissement?.adresse?.province }}, {{ etablissement?.adresse?.ville }}</p>
+        <h5>Conditions d'admission</h5>
+        <p>{{ etablissement?.condition }}</p>
+        <h5>Procédures de candidature</h5>
+        <p>{{ etablissement?.proceduresCandidature }}</p>
+        <h5>Calendrier académique</h5>
+        <p>{{ etablissement?.calendrier }}</p>
+      </div>
+      <button class="btn-return" [routerLink]="['/all-etablissements']">Retour à la liste</button>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
