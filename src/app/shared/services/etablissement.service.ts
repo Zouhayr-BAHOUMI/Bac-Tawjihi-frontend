@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EtablissementDto } from 'src/app/dto/etablissement-dto';
+import { TypeEtablissement } from 'src/app/enums/type-etablissement';
 import { Etablissement } from 'src/app/interfaces/etablissement';
 
 @Injectable({
@@ -51,5 +52,13 @@ export class EtablissementService {
 
   getHomeEtablissementsByUniversite(idUniversite: number): Observable<Etablissement[]> {
     return this.http.get<Etablissement[]>(`${this.apiUrl2}/universite/${idUniversite}`);
+  }
+
+  public getEtablissementsByType(typeEtablissement: TypeEtablissement): Observable<Etablissement[]> {
+    return this.http.get<Etablissement[]>(`${this.apiUrl2}/type/${typeEtablissement}`);
+  }
+
+  searchEtablissements(query: string): Observable<Etablissement[]> {
+    return this.http.get<Etablissement[]>(`${this.apiUrl2}/search?query=${query}`);
   }
 }

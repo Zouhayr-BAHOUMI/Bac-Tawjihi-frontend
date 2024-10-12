@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { Universite } from 'src/app/interfaces/universite';
 import { UniversiteService } from 'src/app/shared/services/universite.service';
 import { FormsModule } from '@angular/forms';
+import { TypeEtablissement } from 'src/app/enums/type-etablissement';
+import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-all-etablissement',
@@ -24,6 +26,12 @@ export class AllEtablissementComponent implements OnInit{
   universites: Universite[] = [];
   selectedUniversiteId: number | undefined;
 
+  selectedType: TypeEtablissement | '' = ''; 
+  establissementTypes = Object.values(TypeEtablissement);
+
+  searchQuery: string = '';
+  private searchSubject: Subject<string> = new Subject<string>();
+
   constructor(
     private etablissementService: EtablissementService,
     private universiteService: UniversiteService
@@ -32,6 +40,7 @@ export class AllEtablissementComponent implements OnInit{
   ngOnInit() {
     this.getEtablissements();
     this.getUniversities();
+    this.search();
   }
 
   public getUniversities(): void {
@@ -46,6 +55,8 @@ export class AllEtablissementComponent implements OnInit{
     );
   }
 
+
+
   onUniversiteChange(): void {
     if (this.selectedUniversiteId) {
       this.etablissementService.getHomeEtablissementsByUniversite(this.selectedUniversiteId).subscribe(data => {
@@ -53,6 +64,16 @@ export class AllEtablissementComponent implements OnInit{
       });
     } else {
       this.getEtablissements();  
+    }
+  }
+
+  onTypeChange(): void {
+    if (this.selectedType) {
+      this.etablissementService.getEtablissementsByType(this.selectedType).subscribe(data => {
+        this.etablissements = data;
+      });
+    } else {
+      this.getEtablissements();
     }
   }
 
@@ -65,6 +86,25 @@ export class AllEtablissementComponent implements OnInit{
         console.log(error.message);
       }
     );
+  }
+
+  search(): void {
+    this.searchSubject.pipe(
+      debounceTime(200),
+      distinctUntilChanged() 
+    ).subscribe(query => {
+      if (query) {
+        this.etablissementService.searchEtablissements(query).subscribe(data => {
+          this.etablissements = data;
+        });
+      } else {
+        this.getEtablissements(); 
+      }
+    });
+  }
+
+  onSearchChange(): void {
+    this.searchSubject.next(this.searchQuery);
   }
 
 }
