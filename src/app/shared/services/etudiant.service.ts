@@ -30,4 +30,8 @@ export class EtudiantService {
   public getRandomQuestions(idTest: number): Observable<Question[]> {
     return this.http.get<Question[]>(`${this.apiUrl}/tenRandom-questions?idTest=${idTest}`);
   }
+
+  submitReponses(reponsesChoisi: number[]): Observable<any> {
+    return this.http.post(`${this.apiUrl}/test/submit`, reponsesChoisi, { responseType: 'text' });
+  }
 }

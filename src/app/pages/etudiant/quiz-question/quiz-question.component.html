@@ -1,11 +1,30 @@
 <div class="quiz-container">
-    <h1 class="quiz-title">Quiz</h1>
-    <form (ngSubmit)="submitQuiz()">
+  <h1 class="quiz-title">Quiz</h1>
+  <form (ngSubmit)="submitQuiz()">
+    <div class="questions-grid">
       <div *ngFor="let question of questions; let i = index" class="question-card">
         <h2 class="question-number">Question {{ i + 1 }}</h2>
         <p class="question-text">{{ question.contenuQuestion }}</p>
-        
+        <div class="choices-container">
+          <div *ngFor="let choice of question.choix; let j = index" 
+               class="choice-item" 
+               [ngClass]="{
+                 'correct': reponsesChoisi[question.id!]?.idChoix === choice.id && reponsesChoisi[question.id!]?.isCorrect,
+                 'incorrect': reponsesChoisi[question.id!]?.idChoix === choice.id && !reponsesChoisi[question.id!]?.isCorrect
+               }"
+               (click)="selectChoice(question.id!, choice.id!, choice.isCorrect)"
+               [class.disabled]="selectedForQuestion[question.id!]">
+            
+            {{ choice.contenuChoix }}
+            <span *ngIf="reponsesChoisi[question.id!]?.idChoix === choice.id">
+              <i *ngIf="reponsesChoisi[question.id!]?.isCorrect" class="fa fa-check green-icon"></i>
+              <i *ngIf="!reponsesChoisi[question.id!]?.isCorrect" class="fa fa-times red-icon"></i>
+            </span>
+
+          </div>
+        </div>
       </div>
-      <button type="submit" class="submit-button">Submit Quiz</button>
-    </form>
-  </div>
+    </div>
+    <button type="submit" class="submit-button">Submit Quiz</button>
+  </form>
+</div>

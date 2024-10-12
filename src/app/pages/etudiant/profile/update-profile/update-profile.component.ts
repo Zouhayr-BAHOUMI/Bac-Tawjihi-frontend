@@ -60,7 +60,11 @@ export class UpdateProfileComponent implements OnInit{
       this.etudiantService.getEtudiantProfile().subscribe(
         (response: Etudiant) => {
           this.etudiant = response;
+
+          const formattedDateNaissence = this.formatDate(response.dateNaissence);
+
           this.updateProfileForm.patchValue({
+            
             fullname: this.etudiant.fullname, 
             email: this.etudiant.email,
             nom: this.etudiant.nom,
@@ -68,7 +72,7 @@ export class UpdateProfileComponent implements OnInit{
             cin: this.etudiant.cin,
             imageUrl: this.etudiant.imageUrl,
             sexe: this.etudiant.sexe,
-            dateNaissence: this.etudiant.dateNaissence,
+            dateNaissence: formattedDateNaissence,
             lieuNaissence: this.etudiant.lieuNaissence,
             tele: this.etudiant.tele,
             specialite: this.etudiant.specialite,
@@ -84,6 +88,11 @@ export class UpdateProfileComponent implements OnInit{
         error => console.error(error)
       );
 
+  }
+
+  formatDate(dateArray: any): string {
+    const [year, month, day] = dateArray;
+    return `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
   }
 
   onSelectFile(e: Event): void {

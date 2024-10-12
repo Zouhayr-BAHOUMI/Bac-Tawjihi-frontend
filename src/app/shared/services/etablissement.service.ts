@@ -10,6 +10,7 @@ import { Etablissement } from 'src/app/interfaces/etablissement';
 export class EtablissementService {
 
   private apiUrl = 'http://localhost:8082/admin/gestion-etablissements';
+  private apiUrl2 = 'http://localhost:8082/home';
 
   constructor(private http: HttpClient) { }
 
@@ -42,5 +43,13 @@ export class EtablissementService {
 
   getEtablissementsByUniversite(idUniversite: number): Observable<Etablissement[]> {
     return this.http.get<Etablissement[]>(`${this.apiUrl}/universite/${idUniversite}`);
+  }
+
+  public getHomeEtablissements(): Observable<Etablissement[]> {
+    return this.http.get<Etablissement[]>(`${this.apiUrl2}/etablissements`);
+  }
+
+  getHomeEtablissementsByUniversite(idUniversite: number): Observable<Etablissement[]> {
+    return this.http.get<Etablissement[]>(`${this.apiUrl2}/universite/${idUniversite}`);
   }
 }

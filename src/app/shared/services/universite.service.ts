@@ -10,11 +10,16 @@ import { Universite } from 'src/app/interfaces/universite';
 export class UniversiteService {
 
   private apiUrl = 'http://localhost:8082/admin/gestion-universities';
+  private apiUrl2 = 'http://localhost:8082/home';
 
   constructor(private http: HttpClient) { }
 
   public getUniversites(): Observable<Universite[]> {
     return this.http.get<Universite[]>(`${this.apiUrl}/`);
+  }
+
+  public getHomeUniversites(): Observable<Universite[]> {
+    return this.http.get<Universite[]>(`${this.apiUrl2}/universities`);
   }
 
    public addUniversite(universiteDto: UniversiteDto): Observable<UniversiteDto> {
