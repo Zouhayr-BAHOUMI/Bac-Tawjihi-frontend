@@ -49,6 +49,7 @@ export class EtablissementService {
   public getHomeEtablissements(): Observable<Etablissement[]> {
     return this.http.get<Etablissement[]>(`${this.apiUrl2}/etablissements`);
   }
+  
 
   getHomeEtablissementsByUniversite(idUniversite: number): Observable<Etablissement[]> {
     return this.http.get<Etablissement[]>(`${this.apiUrl2}/universite/${idUniversite}`);
@@ -64,5 +65,9 @@ export class EtablissementService {
 
   public getHomeEtablissementById(idEtablissement: number): Observable<Etablissement> {
     return this.http.get<Etablissement>(`${this.apiUrl2}/idEtablissement?idEtablissement=${idEtablissement}`);
+  }
+
+  public getHomeEtablissementsPagination(page: number, size: number): Observable<Etablissement[]> {
+    return this.http.get<Etablissement[]>(`${this.apiUrl2}/etablissement?page=${page}&size=${size}`);
   }
 }

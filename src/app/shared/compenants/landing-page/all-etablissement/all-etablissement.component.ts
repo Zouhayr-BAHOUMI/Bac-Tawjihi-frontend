@@ -32,6 +32,11 @@ export class AllEtablissementComponent implements OnInit{
   searchQuery: string = '';
   private searchSubject: Subject<string> = new Subject<string>();
 
+  currentPage: number = 0;
+  totalPages: number = 0;
+
+  
+
   constructor(
     private etablissementService: EtablissementService,
     private universiteService: UniversiteService
@@ -78,9 +83,10 @@ export class AllEtablissementComponent implements OnInit{
   }
 
   public getEtablissements(): void {
-    this.etablissementService.getHomeEtablissements().subscribe(
-      (response: Etablissement[]) => {
-        this.etablissements = response;
+    this.etablissementService.getHomeEtablissementsPagination(this.currentPage, 2).subscribe(
+      (response: any) => {
+        this.etablissements = response.content;
+        this.totalPages = response.totalPages;
       },
       (error: HttpErrorResponse) => {
         console.log(error.message);
@@ -105,6 +111,11 @@ export class AllEtablissementComponent implements OnInit{
 
   onSearchChange(): void {
     this.searchSubject.next(this.searchQuery);
+  }
+
+  changePage(page: number): void {
+    this.currentPage = page;
+    this.getEtablissements();
   }
 
 }
