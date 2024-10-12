@@ -27,11 +27,13 @@ import { AllEtablissementComponent } from './shared/compenants/landing-page/all-
 import { AboutUsComponent } from './shared/compenants/landing-page/about-us/about-us.component';
 import { ParticiperComponent } from './shared/compenants/landing-page/participer/participer.component';
 import { EtablissementDetailsComponent } from './shared/compenants/landing-page/etablissement-details/etablissement-details.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 export const routes: Routes = [
 
     { path: '', component: WarraperComponent },
     { path: 'login', component: LoginComponent, pathMatch: 'full' },
+    { path: 'register', component: RegisterComponent },
     { path: 'admin/admin-dashboard', component: AdminDashboardComponent, children : [
         { path: '', component: MainContentComponent },
         { path: 'universite', component: ListUniversiteComponent },

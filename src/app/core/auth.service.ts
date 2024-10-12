@@ -22,6 +22,14 @@ export class AuthService {
     );
   }
 
+  register(registerRequest: any): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(this.apiUrl + '/auth/register-etudiant', registerRequest).pipe(
+      tap(response => {
+        localStorage.setItem('token', response.token);
+      })
+    );
+  }
+
   logout() : void{
     localStorage.removeItem('token');
   }
