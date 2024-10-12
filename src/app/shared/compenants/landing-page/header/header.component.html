@@ -6,8 +6,8 @@
     <nav class="nav-links">
         <a href="#accueil">Accueil</a>
         <a href="#services">Services</a>
-        <a href="#a-propos">A propos</a>
-        <a href="#comment-participer">Comment participer ?</a>
+        <a routerLink="/about-us">A propos</a>
+        <a routerLink="/participer" >Comment participer ?</a>
         <a href="#contact">Contact</a>
     </nav>
     <button class="login-button" *ngIf="!isLoggedIn" routerLink="/login">Se Connecter</button>

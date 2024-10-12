@@ -13,7 +13,10 @@
               <li class="feature">{{ pack.contenu }}</li>
               <li class="feature">{{ pack.dateLimit }}</li>
             </ul>
-            <button class="cta-button" (click)="selectPack(pack.id)" >S'inscrire</button>
+            <button class="cta-button"  (click)="selectPack(pack.id)"  *ngIf="isLoggedIn"  >S'inscrire</button>
+            <button class="cta-button" 
+          *ngIf="!isLoggedIn" 
+          (click)="redirectToLogin()">S'inscrire</button>
         </div>
 
       </div>

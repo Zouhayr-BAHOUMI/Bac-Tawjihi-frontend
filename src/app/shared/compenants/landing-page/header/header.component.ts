@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
   userName: string | null = null;
   etudiant: Etudiant | null = null;
+  isMenuOpen: boolean = false;
 
   constructor(
     private authService: AuthService, 
@@ -43,6 +44,10 @@ export class HeaderComponent implements OnInit {
     this.authService.logout();
     this.isLoggedIn = false;
     this.router.navigate(['/login']);
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
     
 }

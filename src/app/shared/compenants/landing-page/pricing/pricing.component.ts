@@ -5,6 +5,7 @@ import { PackService } from 'src/app/shared/services/pack.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { EtudiantService } from 'src/app/shared/services/etudiant.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
   selector: 'app-pricing',
@@ -15,16 +16,20 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PricingComponent implements OnInit{
 
+
   packs: Pack[] = [];
+  isLoggedIn: boolean = false;
 
   constructor(
     private packService: PackService,
+    private authService : AuthService,
     private route: ActivatedRoute,
     private etudiantService: EtudiantService,
     private router: Router
   ) {}
 
   ngOnInit() {
+    this.isLoggedIn = this.authService.isLoggedIn();
     this.getPacks();
   }
 
@@ -49,6 +54,10 @@ export class PricingComponent implements OnInit{
         console.log(error.message);
       }
     );
-}
+  }
+
+  redirectToLogin() {
+    this.router.navigate(['/login']);
+  }
 
 }

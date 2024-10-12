@@ -24,6 +24,8 @@ import { ResetPasswordComponent } from './pages/etudiant/profile/reset-password/
 import { PackEtudiantInfoComponent } from './pages/etudiant/pack-etudiant-info/pack-etudiant-info.component';
 import { QuizQuestionComponent } from './pages/etudiant/quiz-question/quiz-question.component';
 import { AllEtablissementComponent } from './shared/compenants/landing-page/all-etablissement/all-etablissement.component';
+import { AboutUsComponent } from './shared/compenants/landing-page/about-us/about-us.component';
+import { ParticiperComponent } from './shared/compenants/landing-page/participer/participer.component';
 
 export const routes: Routes = [
 
@@ -55,6 +57,8 @@ export const routes: Routes = [
     { path: 'student-details/:idPack', component: PackEtudiantInfoComponent },
     { path: 'question-list/:id', component: QuizQuestionComponent },
     { path: 'all-etablissements', component: AllEtablissementComponent },
+    { path: 'about-us', component: AboutUsComponent },
+    { path: 'participer', component: ParticiperComponent },
 
 
 ];
