@@ -1,0 +1,17 @@
+<div class="receipt-container" *ngIf="recuDetails; else noReceipt" >
+    <h2>Payment Recu</h2>
+    <div class="receipt-details">
+      <p><strong>Student:</strong>{{ recuDetails.etudiant.nom }} {{ recuDetails.etudiant.prenom }}</p>
+      <p><strong>Pack:</strong> {{recuDetails.pack.typePack}} </p>
+      <p><strong>Payment ID:</strong> {{recuDetails.paymentIntentId}} </p>
+      <p><strong>Status:</strong> {{recuDetails.status}} </p>
+      <p><strong>Date:</strong> {{recuDetails.paymentDate | date:'medium'}} </p>
+      <p><strong>Amount Paid:</strong> {{recuDetails.amountPaid | currency:'MAD':'symbol'}} </p>
+    </div>
+    <button >Back to Home</button>
+  </div>
+
+  <ng-template #noReceipt>
+    <p>No receipt data available. Please try again or contact support.</p>
+    <button (click)="goBack()">Back to Dashboard</button>
+  </ng-template>

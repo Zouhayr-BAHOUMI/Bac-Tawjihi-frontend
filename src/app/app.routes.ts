@@ -28,6 +28,7 @@ import { AboutUsComponent } from './shared/compenants/landing-page/about-us/abou
 import { ParticiperComponent } from './shared/compenants/landing-page/participer/participer.component';
 import { EtablissementDetailsComponent } from './shared/compenants/landing-page/etablissement-details/etablissement-details.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { RecuComponent } from './pages/etudiant/recu/recu.component';
 
 export const routes: Routes = [
 
@@ -56,6 +57,7 @@ export const routes: Routes = [
         { path: '', component: UpdateProfileComponent },
         { path: 'update-profile', component: UpdateProfileComponent },
         { path: 'reset-password', component: ResetPasswordComponent },
+        { path: 'recu', component: RecuComponent },
     ] },
     { path: 'student-details/:idPack', component: PackEtudiantInfoComponent },
     { path: 'question-list/:id', component: QuizQuestionComponent },
@@ -63,6 +65,8 @@ export const routes: Routes = [
     { path: 'about-us', component: AboutUsComponent },
     { path: 'participer', component: ParticiperComponent },
     { path: 'etablissement-details/:id', component: EtablissementDetailsComponent },
+
+
 
 
 ];
