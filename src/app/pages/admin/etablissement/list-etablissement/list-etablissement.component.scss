@@ -1,64 +1,78 @@
-body {
-    font-family: Arial, sans-serif;
+.table-responsive {
+    overflow-x: auto; 
+    overflow-y: auto; 
+    max-height: 400px; 
 }
+
+.h3{
+    color: #0E4973;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.table {
+    min-width: 800px; 
+}
+
+.table th, .table td {
+    white-space: nowrap; 
+}
+
+
 .card {
     margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.011);
 }
+
 .card-header {
-    background-color: #f8f9fc;
+    background-color: #ffffff;
 }
+
 .card-body {
     font-size: 14px; 
 }
+
 .table th, .table td {
     vertical-align: middle;
     padding: 10px; 
 }
+
 .table img {
     max-width: 80px; 
     height: auto;
     border-radius: 5px;
 }
+
 .table thead th {
-    background-color: #f8f9fc;
+    background-color: #ffffff;
     font-weight: bold;
 }
+
 .table tbody tr:hover {
     background-color: #f1f1f1;
 }
-.btn-primary {
-    background-color: #4e73df;
+
+.btn-edit  {
+    color: #0E4973;
     border: none;
-    font-size: 14px;
+    font-size: 1.3rem;
+    cursor: pointer;
 }
-.btn-danger {
-    background-color: #e74a3b;
+
+.btn-delete {
+    color: #e74a3b;
     border: none;
-    font-size: 14px;
+    font-size: 1.3rem;
+    cursor: pointer;
 }
+
+.btn-create {
+    color: #0E4973; 
+    font-size: 1.5rem; 
+    cursor: pointer;
+}
+
 .btn {
     font-size: 12px; 
-}
-@media (max-width: 768px) {
-    .table-responsive {
-        margin: 0 -15px;
-    }
-    .card-header, .card-body {
-        padding: 1rem;
-    }
-    .table thead {
-        display: none;
-    }
-    .table tbody td {
-        display: block;
-        width: 100%;
-        text-align: right;
-        border-bottom: 1px solid #dee2e6;
-    }
-    .table tbody td:before {
-        content: attr(data-label);
-        float: left;
-        font-weight: bold;
-    }
+    padding: 0.5rem 1.4rem;
 }
