@@ -4,6 +4,7 @@ body {
     padding: 0;
     color: #333;
 }
+
 .about-section {
     display: flex;
     flex-wrap: wrap;
@@ -12,28 +13,36 @@ body {
     background-color: #ffffff;
     margin-top: 2.3rem;
 }
+
 .about-content {
     flex: 1;
+    min-width: 50%;
 }
+
 .about-image {
     flex: 1;
     text-align: center;
+    min-width: 50%;
 }
+
 .about-image img {
     max-width: 100%;
     height: auto;
 }
+
 h1 {
     color: #0E4973;
     font-size: 2.5em;
     margin-bottom: 20px;
     font-weight: 700;
 }
+
 p {
     line-height: 1.6;
     margin-bottom: 20px;
     font-size: 1.2rem;
 }
+
 .cta-button {
     display: inline-block;
     padding: 0.7rem 1.5rem;
@@ -44,6 +53,51 @@ p {
     font-weight: bold;
     transition: background-color 0.3s;
 }
+
 .cta-button:hover {
     background-color: #d4d915;
+}
+
+
+@media screen and (max-width: 868px) {
+    .about-section {
+        padding: 40px 5%;
+    }
+
+    .about-content, .about-image {
+        flex: 100%;
+        min-width: 100%;
+    }
+
+    .about-image {
+        margin-top: 30px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .about-section {
+        padding: 30px 5%;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .cta-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
 }

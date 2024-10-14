@@ -4,11 +4,12 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from 'src/app/core/auth.service';
 import { Etudiant } from 'src/app/interfaces/etudiant';
 import { EtudiantService } from 'src/app/shared/services/etudiant.service';
+import { MainFooterComponent } from "../main-footer/main-footer.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, MainFooterComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
@@ -28,7 +29,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.isLoggedIn = this.authService.isLoggedIn();
     if (this.isLoggedIn) {
-      // Fetch the student's profile
       this.etudiantService.getEtudiantProfile().subscribe(
         (response: Etudiant) => {
           this.etudiant = response;

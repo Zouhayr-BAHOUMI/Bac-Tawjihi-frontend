@@ -7,6 +7,7 @@
   background-color: #f7fafc;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 6rem;
 }
 
 .left-column, .right-column {
@@ -79,7 +80,7 @@ input, select {
   background-color: #0d2b4d;
 }
 
-/* Responsive design for smaller screens */
+
 @media (max-width: 768px) {
   .payment-container {
     flex-direction: column;

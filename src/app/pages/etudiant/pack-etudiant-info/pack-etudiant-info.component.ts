@@ -66,7 +66,11 @@ export class PackEtudiantInfoComponent implements OnInit {
     );
   }
 
-  
+  onSubmit(event: Event): void {
+    event.preventDefault();
+    console.log('Form submitted');
+    this.pay();
+  }
 
   pay(): void {
     const paymentRequest: PaymentRequestDto = {
