@@ -10,6 +10,8 @@ import { EtudiantService } from 'src/app/shared/services/etudiant.service';
 import { StripeService } from 'src/app/shared/services/stripe.service';
 import { PaymentConfirmationDto } from 'src/app/dto/payment-confirmation-dto';
 import { PaymentRequestDto } from 'src/app/dto/payment-request-dto';
+import { Recu } from 'src/app/interfaces/recu';
+import { RecuService } from 'src/app/shared/services/recu.service';
 
 declare var Stripe: any;
 
@@ -31,7 +33,8 @@ export class PackEtudiantInfoComponent implements OnInit {
     private route: ActivatedRoute,
     private etudiantService: EtudiantService,
     private stripeService: StripeService,
-    private router: Router
+    private router: Router,
+    private recuService : RecuService
   ) {
     this.stripe = Stripe('pk_test_51PzGf0P4SnkdAPO0JtNIXHM1B6jxCPDouTdmplUy8XHSsg4NPFgRbc6xjCVx9KRV8aEz7qd7NkkcVvHX6ZoQKOvj00mKpdu15c');
   }
@@ -63,7 +66,11 @@ export class PackEtudiantInfoComponent implements OnInit {
     );
   }
 
-  
+  onSubmit(event: Event): void {
+    event.preventDefault();
+    console.log('Form submitted');
+    this.pay();
+  }
 
   pay(): void {
     const paymentRequest: PaymentRequestDto = {
@@ -99,12 +106,17 @@ export class PackEtudiantInfoComponent implements OnInit {
               console.log('Sending confirmation DTO:', JSON.stringify(confirmationDto));
 
               this.stripeService.confirmPayment(confirmationDto).subscribe(
-                (recu) => {
-                  
-                  this.router.navigate(['/recu', { idEtudiant: recu.etudiant.id, idPack: recu.pack.id }]);
+                (recu: Recu) => {
+                  console.log('Receipt received:', recu);
+                  this.recuService.setReceiptData(recu);
+                  this.router.navigate(['/user/user-dashboard/recu']);
                 },
-                (error) => {
-                  console.error('Error confirming payment:', error);
+                (error: HttpErrorResponse) => {
+                  if (error.status === 409) {
+                    alert('Vous avez déjà payé pour ce pack.');
+                  } else {
+                    console.error('Error confirming payment:', error);
+                  }
                 }
               );
             }

@@ -91,6 +91,18 @@ export class UpdateProfileComponent implements OnInit{
   }
 
   formatDate(dateArray: any): string {
+    if (!dateArray) {
+      return ''; 
+    }
+  
+    if (!Array.isArray(dateArray)) {
+      const date = new Date(dateArray);
+      const year = date.getFullYear();
+      const month = (date.getMonth() + 1).toString().padStart(2, '0');
+      const day = date.getDate().toString().padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+  
     const [year, month, day] = dateArray;
     return `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
   }

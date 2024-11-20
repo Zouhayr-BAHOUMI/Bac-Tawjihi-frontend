@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from 'src/app/core/auth.service';
+import { SideBarService } from 'src/app/shared/services/side-bar.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +16,7 @@ export class NavbarComponent {
   isDropdownVisible : boolean = false;
 
 
- constructor(private authService: AuthService) {}
+ constructor(private authService: AuthService,private sidebarService: SideBarService) {}
 
  ngOnInit(): void {
    this.setUserFullName();
@@ -26,9 +27,13 @@ export class NavbarComponent {
  }
  
 
- toggleDropdown() {
-   this.isDropdownVisible = !this.isDropdownVisible;
- }
+toggleDropdown() {
+  this.isDropdownVisible = !this.isDropdownVisible;
+}
+
+toggleSidebar() {
+  this.sidebarService.toggleSidebar(); 
+}
 
  logout() {
    this.authService.logout();

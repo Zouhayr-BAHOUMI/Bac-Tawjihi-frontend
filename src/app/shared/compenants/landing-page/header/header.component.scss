@@ -2,43 +2,43 @@ body {
     font-family: Poppins, sans-serif;
     margin: 0;
     padding: 0;
-}
-.navbar {
+  }
+  .navbar {
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 10px 20px;
     background-color: #ffffff;
     margin-top: 1.2rem;
-}
-.logo {
+  }
+  .logo {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-}
-.logo-image {
+  }
+  .logo-image {
     width: 4em;
     height: auto;
-}
-.logo-text {
+  }
+  .logo-text {
     color: #0e4973;
     font-size: 12px;
     font-weight: 600;
     margin-top: 4px;
-}
-.nav-links {
+  }
+  .nav-links {
     display: flex;
     gap: 2.9rem;
     margin-top: 1rem;
-}
-.nav-links a {
+  }
+  .nav-links a {
     color: #0e4973;
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 400;
-}
-.login-button {
+  }
+  .login-button {
     background-color: #e3e817;
     color: #0e4973;
     border: none;
@@ -47,13 +47,11 @@ body {
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
-}
-
-.user-menu {
+  }
+  .user-menu {
     position: relative;
     display: inline-block;
-}
-  
+  }
   .user-avatar {
     height: 3.4em;
     width: 3.4em;
@@ -61,7 +59,6 @@ body {
     cursor: pointer;
     border-color: #0e4973;
   }
-  
   .dropdown-content {
     display: none;
     position: absolute;
@@ -72,11 +69,9 @@ body {
     border-radius: 4px;
     z-index: 1;
   }
-  
   .user-menu:hover .dropdown-content {
     display: block;
   }
-  
   .dropdown-content a {
     display: block;
     padding: 0.5rem 0;
@@ -84,22 +79,49 @@ body {
     color: #333;
     cursor: pointer;
   }
-  
   .dropdown-content a:hover {
     background-color: #f1f1f1;
   }
-
-@media (max-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+  @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
     }
     .nav-links {
-        margin-top: 10px;
-        flex-direction: column;
+      display: none;
+      margin-top: 10px;
+      flex-direction: column;
+    }
+    .nav-links.active {
+      display: flex;
     }
     .login-button {
-        margin-top: 10px;
-        align-self: flex-start;
+      margin-top: 10px;
+      align-self: flex-start;
     }
-}
+    .menu-toggle {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      align-self: flex-end;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px 0;
+      background-color: #0e4973;
+    }
+    .navbar.menu-open .nav-links,
+    .navbar.menu-open .login-button,
+    .navbar.menu-open .user-menu {
+      display: flex;
+    }
+  }

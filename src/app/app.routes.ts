@@ -26,11 +26,15 @@ import { QuizQuestionComponent } from './pages/etudiant/quiz-question/quiz-quest
 import { AllEtablissementComponent } from './shared/compenants/landing-page/all-etablissement/all-etablissement.component';
 import { AboutUsComponent } from './shared/compenants/landing-page/about-us/about-us.component';
 import { ParticiperComponent } from './shared/compenants/landing-page/participer/participer.component';
+import { EtablissementDetailsComponent } from './shared/compenants/landing-page/etablissement-details/etablissement-details.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { RecuComponent } from './pages/etudiant/recu/recu.component';
 
 export const routes: Routes = [
 
     { path: '', component: WarraperComponent },
     { path: 'login', component: LoginComponent, pathMatch: 'full' },
+    { path: 'register', component: RegisterComponent },
     { path: 'admin/admin-dashboard', component: AdminDashboardComponent, children : [
         { path: '', component: MainContentComponent },
         { path: 'universite', component: ListUniversiteComponent },
@@ -53,12 +57,16 @@ export const routes: Routes = [
         { path: '', component: UpdateProfileComponent },
         { path: 'update-profile', component: UpdateProfileComponent },
         { path: 'reset-password', component: ResetPasswordComponent },
+        { path: 'recu', component: RecuComponent },
     ] },
     { path: 'student-details/:idPack', component: PackEtudiantInfoComponent },
     { path: 'question-list/:id', component: QuizQuestionComponent },
     { path: 'all-etablissements', component: AllEtablissementComponent },
     { path: 'about-us', component: AboutUsComponent },
     { path: 'participer', component: ParticiperComponent },
+    { path: 'etablissement-details/:id', component: EtablissementDetailsComponent },
+
+
 
 
 ];

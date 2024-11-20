@@ -1,19 +1,28 @@
-<div class="student-pack-info">
+<div class="payment-container">
+  <div class="left-column">
     <h2>Informations de l'Étudiant</h2>
-    <p>Nom: {{ etudiant.nom }}</p>
-    <p>Prénom: {{ etudiant.prenom }}</p>
-    <p>Téléphone: {{ etudiant.tele }}</p>
-    <p>Email: {{ etudiant.email }}</p> 
+    <div class="info-group">
+      <p><strong>Nom:</strong> {{ etudiant.nom }}</p>
+      <p><strong>Prénom:</strong> {{ etudiant.prenom }}</p>
+      <p><strong>Téléphone:</strong> {{ etudiant.tele }}</p>
+      <p><strong>Email:</strong> {{ etudiant.email }}</p>
+    </div>
     
-    <h2>Packs Choisi</h2>
-    <p>Type de Pack: {{ pack.typePack }}</p>
-    <p>Prix: {{ pack.prix }}DH</p>
-  
-    <button (click)="pay()">Payer</button>
-    <button (click)="cancel()">Annuler</button>
+    <h2>Pack Choisi</h2>
+    <div class="info-group">
+      <p><strong>Type de Pack:</strong> {{ pack.typePack }}</p>
+      <p><strong>Prix:</strong> {{ pack.prix }} DH</p>
+    </div>
   </div>
-
-  <div id="card-element"></div>
   
-
-  
+  <div class="right-column">
+    <h2>Payer par carte</h2>
+    <form (submit)="onSubmit($event)">
+      <div class="form-group">
+        <label for="card-number">Informations de la carte</label>
+        <div id="card-element"></div>
+      </div>
+      <button type="submit" class="btn-pay">Payer</button>
+    </form>
+  </div>
+</div>

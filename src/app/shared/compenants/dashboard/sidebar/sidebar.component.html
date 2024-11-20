@@ -1,4 +1,4 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" [ngClass]="{'d-none': !isSidebarVisible}" id="accordionSidebar">
     <li *ngIf="!isEtudiant()" class="nav-item active">
       <a class="nav-link" routerLink="/admin/admin-dashboard">
         <i class="fas fa-fw fa-tachometer-alt"></i>
